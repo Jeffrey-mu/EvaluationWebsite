@@ -3,20 +3,24 @@ const HEADERCLASSNAME = ".header";
 const FOOTERCLASSNAME = ".footer";
 const MENUCLASSNAME = ".menu";
 const PHONEMENUCLASSNAME = ".menu_phone";
+const TOP_RECOMMENDATION = ".top_recommendation"
 window.onload = function () {
   // 底部公共
   var header = itemDoesItExist(HEADERCLASSNAME) && new Vue({
     el: HEADERCLASSNAME,
     data: {
-      message: 'Hello Vue!'
+      showSearch: false
     },
     template: `<div class="header">
       <div class="phone_menu icon iconfont">
         &#xe624;
       </div>
-      <div class="text-wrapper_1">
+      <div class="text-wrapper_1" v-if="!showSearch">
         <span class="text_1">Evaluation</span>
         <span class="text_2">station</span>
+      </div>
+      <div class="search_box" v-else>
+        <input type="text" class="search_box_input">
       </div>
       <div class="share">
         <img class="label_1" referrerpolicy="no-referrer"
@@ -29,8 +33,11 @@ window.onload = function () {
           src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnga78ffff007c9d8e68674501873e57b98a7e8e90d6cbf102928b6106417ee1be9" />
         <img class="label_5" referrerpolicy="no-referrer"
           src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngbaecf8b84e1fa240a7ad586e7339c0750c1bdd18ffc295c32453fb4d801d979c" />
-        <div class="search">
-          <input type="text">
+        <div class="search_box_pc">
+          <div class="icon iconfont" style="line-height: 30px;margin: 0 10px;">
+          &#xe8d6;
+          </div>
+          <input type="text" class="search_box_input">
         </div>
       </div>
       <div class="phone_search icon iconfont">
@@ -119,7 +126,23 @@ window.onload = function () {
     </div>
     </div>`
   })
-
+  // 顶部推荐
+  var top_recommendation = itemDoesItExist(TOP_RECOMMENDATION) && new Vue({
+    el: TOP_RECOMMENDATION,
+    data: {
+    },
+    template: `<div class="top_recommendation">
+        <a href="" class="active">
+          <span class="text_13">TRENDING</span></a>
+        <a href="">
+          <span class="text_14">Gas Lawn Mowers</span></a>
+        <a href="">
+          <span class="text_15">Patio Heaters</span></a>
+        <a href=""><span class="text_16">Hot Tubs</span></a>
+        <a href=""><span class="text_17">Cell Phone Providers</span></a>
+        <a href=""><span class="text_18">Eyeglasses</span></a>
+      </div>`
+  })
   // 底部公共
   var footer = itemDoesItExist(FOOTERCLASSNAME) && new Vue({
     el: FOOTERCLASSNAME,
@@ -162,6 +185,7 @@ window.onload = function () {
                 </div>
               </div>`
   })
+
 }
 function itemDoesItExist(value) {
   return Boolean(document.querySelector(value))
