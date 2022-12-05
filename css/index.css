@@ -1,16 +1,16 @@
+.text_20 {
+  overflow-wrap: break-word;
+  color: rgb(51, 51, 51);
+  font-size: 32px;
+  font-family: Arial-BoldMT;
+  text-align: left;
+  line-height: 42px;
+}
+
 .text_21 {
   overflow-wrap: break-word;
   color: rgb(51, 51, 51);
   font-size: 20px;
-  font-family: Arial-BoldMT;
-  text-align: left;
-  line-height: 26px;
-}
-
-.text_24 {
-  overflow-wrap: break-word;
-  color: rgb(51, 51, 51);
-  font-size: 16px;
   font-family: Arial-BoldMT;
   text-align: left;
   line-height: 26px;
@@ -35,6 +35,36 @@
   white-space: wrap;
   line-height: 15px;
   margin-top: 12px;
+}
+
+.text_24 {
+  overflow-wrap: break-word;
+  color: rgb(51, 51, 51);
+  font-size: 16px;
+  font-family: Arial-BoldMT;
+  text-align: left;
+  line-height: 26px;
+}
+
+.text_25 {
+  overflow-wrap: break-word;
+  color: rgb(92, 92, 92);
+  font-size: 16px;
+  font-family: Verdana;
+  text-align: left;
+  line-height: 28px;
+  margin-top: 12px;
+}
+
+.text_26 {
+  overflow-wrap: break-word;
+  color: rgb(56, 116, 244);
+  font-size: 20px;
+  font-family: Arial-BoldMT;
+  text-align: left;
+  white-space: nowrap;
+  line-height: 23px;
+  margin-top: 29px;
 }
 
 .start {
@@ -212,6 +242,18 @@
   width: 80vw;
   margin: 0 auto;
 }
+.app .content .details {
+  padding: 20px 0;
+}
+.app .content .details .details_img {
+  margin-top: 20px;
+}
+@media screen and (max-width: 900px) {
+  .app .content .details {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
 .app .content .typePage {
   display: flex;
   padding-bottom: 20px;
@@ -272,16 +314,6 @@
 }
 .app .content .typePage .left .typePage_info .typePage_top {
   margin: 20px 0;
-}
-.app .content .typePage .left .typePage_info .typePage_top .typePage_title .text_20 {
-  overflow-wrap: break-word;
-  color: rgb(51, 51, 51);
-  font-size: 28px;
-  font-family: Arial-BoldMT;
-  text-align: left;
-  white-space: nowrap;
-  line-height: 32px;
-  margin-top: 25px;
 }
 .app .content .typePage .left .typePage_info .typePage_des {
   margin: 20px 0;
@@ -378,31 +410,6 @@
     padding: 0 20px;
   }
 }
-.app .content .author .left .author_info .author_top {
-  margin: 20px 0;
-}
-.app .content .author .left .author_info .author_top .author_title .text_20 {
-  overflow-wrap: break-word;
-  color: rgb(51, 51, 51);
-  font-size: 28px;
-  font-family: Arial-BoldMT;
-  text-align: left;
-  white-space: nowrap;
-  line-height: 32px;
-  margin-top: 25px;
-}
-.app .content .author .left .author_info .author_des {
-  margin: 20px 0;
-}
-.app .content .author .left .author_info .author_des .text_22 {
-  overflow-wrap: break-word;
-  color: rgb(51, 51, 51);
-  font-size: 16px;
-  font-family: Verdana;
-  text-align: left;
-  line-height: 24px;
-  margin-top: 20px;
-}
 .app .content .author .left .article_block .article_title .text_22 {
   overflow-wrap: break-word;
   color: rgb(51, 51, 51);
@@ -468,6 +475,32 @@
   .app .content .author .right {
     display: none;
   }
+}
+.app .content .author_info .author_top {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+.app .content .author_info .author_top .author_img {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+.app .content .author_info .author_top .author_img img {
+  width: 100%;
+  height: 100%;
+}
+.app .content .author_info .author_des {
+  margin: 20px 0;
+}
+.app .content .author_info .author_des .text_22 {
+  overflow-wrap: break-word;
+  color: rgb(51, 51, 51);
+  font-size: 16px;
+  font-family: Verdana;
+  text-align: left;
+  line-height: 24px;
+  margin-top: 20px;
 }
 @media screen and (max-width: 900px) {
   .app .content {
