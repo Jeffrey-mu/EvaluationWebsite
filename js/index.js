@@ -1,12 +1,20 @@
-
+/**
+ * @Author WangJiaFeng
+ * @Description 公共组件封装
+ * @email 1115378579@qq.com
+ * @Date 2022-12-05 15:44:38 星期一
+ * @return
+ */
 const HEADERCLASSNAME = ".header";
 const FOOTERCLASSNAME = ".footer";
 const MENUCLASSNAME = ".menu";
 const PHONEMENUCLASSNAME = ".menu_phone";
 const TOP_RECOMMENDATION = ".top_recommendation"
+
 window.onload = function () {
+
   // 底部公共
-  var header = itemDoesItExist(HEADERCLASSNAME) && new Vue({
+  renderElement(HEADERCLASSNAME, {
     el: HEADERCLASSNAME,
     data: {
       showSearch: false
@@ -45,8 +53,9 @@ window.onload = function () {
       </div>
     </div>`
   })
+
   // 菜单
-  var menu = itemDoesItExist(MENUCLASSNAME) && new Vue({
+  renderElement(MENUCLASSNAME, {
     el: MENUCLASSNAME,
     data: {
     },
@@ -86,8 +95,9 @@ window.onload = function () {
       </div>
     </div>`
   })
+
   // 移动端菜单
-  var phoneMenu = itemDoesItExist(PHONEMENUCLASSNAME) && new Vue({
+  renderElement(PHONEMENUCLASSNAME, {
     el: PHONEMENUCLASSNAME,
     data: {
     },
@@ -126,8 +136,9 @@ window.onload = function () {
     </div>
     </div>`
   })
+
   // 顶部推荐
-  var top_recommendation = itemDoesItExist(TOP_RECOMMENDATION) && new Vue({
+  renderElement(TOP_RECOMMENDATION, {
     el: TOP_RECOMMENDATION,
     data: {
     },
@@ -143,8 +154,9 @@ window.onload = function () {
         <a href=""><span class="text_18">Eyeglasses</span></a>
       </div>`
   })
+
   // 底部公共
-  var footer = itemDoesItExist(FOOTERCLASSNAME) && new Vue({
+  renderElement(FOOTERCLASSNAME, {
     el: FOOTERCLASSNAME,
     data: {
     },
@@ -185,8 +197,14 @@ window.onload = function () {
                 </div>
               </div>`
   })
-
 }
+
+// 判断节点是否存在
 function itemDoesItExist(value) {
   return Boolean(document.querySelector(value))
+}
+
+// 渲染节点
+function renderElement(className, value) {
+  itemDoesItExist(className) && new Vue(value)
 }
