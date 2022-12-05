@@ -15,10 +15,10 @@ window.onload = function () {
       <div class="phone_menu icon iconfont">
         &#xe624;
       </div>
-      <div class="text-wrapper_1" v-if="!showSearch">
+      <a href="./index.html" class="text-wrapper_1" v-if="!showSearch">
         <span class="text_1">Evaluation</span>
         <span class="text_2">station</span>
-      </div>
+      </a>
       <div class="search_box" v-else>
         <input type="text" class="search_box_input">
       </div>
@@ -40,7 +40,7 @@ window.onload = function () {
           <input type="text" class="search_box_input">
         </div>
       </div>
-      <div class="phone_search icon iconfont">
+      <div class="phone_search icon iconfont" @click="showSearch=!showSearch">
         &#xe8d6;
       </div>
     </div>`
@@ -54,10 +54,10 @@ window.onload = function () {
     <div class="menu">
       <div class="menu_content">
         <div class="block_1 flex-row">
-          <div class="block_1_item flex-col" style="margin: 10px 0;">
+          <a href="./index.html" class="block_1_item flex-col" style="margin: 10px 0;">
             <img class="image_1" referrerpolicy="no-referrer"
               src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng7b398184f7d7262418e957642707a8fc1465d7daf90cf3aa4a10de694a2610a0" />
-          </div>
+          </a>
           <div class="block_1_item flex-col">
             <a class="text_5">Best&nbsp;Picks</a>
           </div>
@@ -153,31 +153,31 @@ window.onload = function () {
                   <p class="top_text">Top Ten Reviews is part of Future US Inc, an international media group and leading digital publisher. Visit our corporate site(opens in new tab)</p>
                   <div class="footer_content_hr"></div>
                    <p class="more_text">
-                      <a>
+                      <a href="./Terms and conditions.html">
                         Terms and conditions
                       </a>
-                      <a>
+                      <a href="./Privacy policy.html">
                         Privacy policy
                       </a>
-                      <a>
+                      <a href="./Cookies policy.html">
                         Cookies policy
                       </a>
-                      <a>
+                      <a href="./Accessibility Statement.html">
                         Accessibility Statement
                       </a>
                       </p>
                       <p class="more_text">
-                      <a>
+                      <a href="./Archives.html">
                         Archives
                       </a>
-                      <a>
+                      <a href="./Advertise.html">
                         Advertise
                       </a>
-                      <a>
+                      <a href="./About us.html">
                         About us
                       </a>
-                      <a>
-                       Contact us
+                      <a href="./Contact us.html">
+                        Contact us
                       </a>
                    </p>
                    <div class="footer_content_hr"></div>

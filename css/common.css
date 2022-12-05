@@ -53,7 +53,7 @@ button:active {
   display: flex;
   justify-content: space-around;
 }
-.justify-between {
+. {
   display: flex;
   justify-content: space-between;
 }
