@@ -70,3 +70,6 @@ button:active {
   align-items: flex-end;
 }
 a{text-decoration:none;color:#000;}
+img {
+  cursor: pointer;
+}

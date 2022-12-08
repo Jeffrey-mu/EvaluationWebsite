@@ -19,6 +19,9 @@ window.onload = function () {
     data: {
       showSearch: false
     },
+    async mounted() {
+      console.log(await getJson('../api/menu.json'));
+    },
     template: `<div class="header">
       <div class="phone_menu icon iconfont">
         &#xe624;
@@ -32,15 +35,15 @@ window.onload = function () {
       </div>
       <div class="share">
         <img class="label_1" referrerpolicy="no-referrer"
-          src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng2ccb0f7fdb181eb9b9532a59c98ba58de94fb84ab26ee19b27f78d6c651c4e8d" />
+          src="../images/faceBook" />
         <img class="label_2" referrerpolicy="no-referrer"
-          src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng205b93b3eedfb2980a047955c747375fbc6d1b57e1416a737c68bd1921a131f4" />
+          src="../images/Twitter" />
         <img class="label_3" referrerpolicy="no-referrer"
-          src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng2400955fe1fa1790e54019af0998149bf3ef681dca9533bd1ac4ef8f3688b19b" />
+          src="../images/Q" />
         <img class="label_4" referrerpolicy="no-referrer"
-          src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnga78ffff007c9d8e68674501873e57b98a7e8e90d6cbf102928b6106417ee1be9" />
+          src="../images/San" />
         <img class="label_5" referrerpolicy="no-referrer"
-          src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngbaecf8b84e1fa240a7ad586e7339c0750c1bdd18ffc295c32453fb4d801d979c" />
+          src="../images/Email" />
         <div class="search_box_pc">
           <div class="icon iconfont" style="line-height: 30px;margin: 0 10px;">
           &#xe8d6;
@@ -58,7 +61,13 @@ window.onload = function () {
   renderElement(MENUCLASSNAME, {
     el: MENUCLASSNAME,
     data: {
+      menu: []
     },
+    async mounted() {
+      this.menu = await getJson('../api/menu.json');
+      console.log(window.location)
+    },
+
     template: `
     <div class="menu">
       <div class="menu_content">
@@ -68,28 +77,13 @@ window.onload = function () {
               src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng7b398184f7d7262418e957642707a8fc1465d7daf90cf3aa4a10de694a2610a0" />
           </a>
           <div class="block_1_item flex-col">
-            <a class="text_5">Best&nbsp;Picks</a>
+            <a href="./reviewsPage.html" class="text_5">Best&nbsp;Picks</a>
           </div>
           <div class="block_1_item flex-col">
-            <a class="text_6">Reviews</a>
+            <a href="./bestpicksPage.html" class="text_6">Reviews</a>
           </div>
-          <div class="block_1_item flex-col">
-            <a class="text_7">Deal</a>
-          </div>
-          <div class="block_1_item flex-col">
-            <a class="text_8">Money</a>
-          </div>
-          <div class="block_1_item flex-col">
-            <a class="text_9">Tech</a>
-          </div>
-          <div class="block_1_item flex-col">
-            <a class="text_10">Health</a>
-          </div>
-          <div class="block_1_item flex-col">
-            <a class="text_11">Home&nbsp;&amp;Garden</a>
-          </div>
-          <div class="block_1_item flex-col">
-            <a class="text_12">Hobbies</a>
+          <div class="block_1_item flex-col" v-for="item in menu">
+            <a :href="item.type == '1' ? './reviewsPage.html?type=' + item.name : './bestpicksPage.html?type=' + item.name" class="text_6">{{item.name}}</a>
           </div>
         </div>
       </div>
@@ -100,6 +94,9 @@ window.onload = function () {
   renderElement(PHONEMENUCLASSNAME, {
     el: PHONEMENUCLASSNAME,
     data: {
+    },
+    async mounted() {
+      this.menu = await getJson('../api/menu.json');
     },
     template: `
     <div class="menu_phone">
@@ -114,23 +111,8 @@ window.onload = function () {
         <div class="menu_item">
           <a href="">Reviews</a>
         </div>
-        <div class="menu_item">
-          <a href="">Deal</a>
-        </div>
-        <div class="menu_item">
-          <a href="">Money</a>
-        </div>
-        <div class="menu_item">
-          <a href="">Tech</a>
-        </div>
-        <div class="menu_item">
-          <a href="">Health</a>
-        </div>
-        <div class="menu_item">
-          <a href="">Home&nbsp;&amp;Garden</a>
-        </div>
-        <div class="menu_item">
-          <a href="">Hobbies</a>
+        <div class="menu_item" v-for="item in menu">
+          <a class="text_6">{{item.name}}</a>
         </div>
       </div>
     </div>
@@ -141,17 +123,14 @@ window.onload = function () {
   renderElement(TOP_RECOMMENDATION, {
     el: TOP_RECOMMENDATION,
     data: {
+      topRecommendation: []
+    },
+    async mounted() {
+      this.topRecommendation = await getJson('../api/topRecommendation.json');
     },
     template: `<div class="top_recommendation">
-        <a href="" class="active">
-          <span class="text_13">TRENDING</span></a>
-        <a href="">
-          <span class="text_14">Gas Lawn Mowers</span></a>
-        <a href="">
-          <span class="text_15">Patio Heaters</span></a>
-        <a href=""><span class="text_16">Hot Tubs</span></a>
-        <a href=""><span class="text_17">Cell Phone Providers</span></a>
-        <a href=""><span class="text_18">Eyeglasses</span></a>
+        <a href="" class="active_null" v-for="item in topRecommendation">
+          <span class="text_13">{{item.name}}</span></a>
       </div>`
   })
 
@@ -208,3 +187,9 @@ function itemDoesItExist(value) {
 function renderElement(className, value) {
   itemDoesItExist(className) && new Vue(value)
 }
+
+// api获取
+async function getJson(valuePath) {
+  return await (await fetch(valuePath)).json()
+}
+

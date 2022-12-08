@@ -20,6 +20,7 @@
   font-family: Arial-BoldMT;
   text-align: left;
   line-height: 42px;
+  margin-bottom: 8px;
 }
 
 // 一级标题文字样式
@@ -31,6 +32,7 @@
   text-align: left;
   white-space: wrap;
   line-height: 26px;
+  margin-bottom: 8px;
 }
 
 
@@ -42,7 +44,7 @@
   font-family: Verdana;
   text-align: left;
   line-height: 22px;
-  margin-top: 12px;
+  margin-bottom: 8px;
 }
 
 // 日期样式
@@ -54,7 +56,7 @@
   text-align: left;
   white-space: wrap;
   line-height: 15px;
-  margin-top: 12px;
+  margin-bottom: 8px;
 }
 
 // 二级标题文字样式
@@ -65,6 +67,7 @@
   font-family: Arial-BoldMT;
   text-align: left;
   line-height: 26px;
+  margin-bottom: 8px;
 }
 
 .text_25 {
@@ -74,7 +77,7 @@
   font-family: Verdana;
   text-align: left;
   line-height: 28px;
-  margin-top: 12px;
+  margin-bottom: 8px;
 }
 
 .text_26 {
@@ -91,6 +94,7 @@
 // 评分样式
 .start {
   color: #3B78F0;
+  margin-bottom: 8px;
 }
 
 .app {
@@ -529,7 +533,8 @@
 
     // 底部锚点内容
     .text_content {
-      height: 40vh;
+      padding: 20px;
+      min-height: 40vh;
     }
 
     .author {
@@ -663,8 +668,10 @@
       background-color: rgba(237, 237, 237, 1);
       height: 60px;
       display: flex;
-      overflow: auto;
+      // overflow: auto;
       box-sizing: content-box;
+      overflow-y: hidden;
+      overflow-x: auto;
 
       .active {
         overflow-wrap: break-word;
@@ -801,9 +808,6 @@
     .read_more {
       display: flex;
       justify-content: space-between;
-
-
-
       padding: 0 20px;
 
       span {
@@ -815,9 +819,11 @@
         white-space: nowrap;
         line-height: 28px;
 
-        &:nth-child(2) {
-          color: rgba(60, 120, 240, 1);
-        }
+
+      }
+
+      a span:nth-child(1) {
+        color: rgba(60, 120, 240, 1);
       }
 
       @media screen and (max-width: 900px) {

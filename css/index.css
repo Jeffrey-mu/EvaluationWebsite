@@ -5,6 +5,7 @@
   font-family: Arial-BoldMT;
   text-align: left;
   line-height: 42px;
+  margin-bottom: 8px;
 }
 
 .text_21 {
@@ -15,6 +16,7 @@
   text-align: left;
   white-space: wrap;
   line-height: 26px;
+  margin-bottom: 8px;
 }
 
 .text_22 {
@@ -24,7 +26,7 @@
   font-family: Verdana;
   text-align: left;
   line-height: 22px;
-  margin-top: 12px;
+  margin-bottom: 8px;
 }
 
 .text_23 {
@@ -35,7 +37,7 @@
   text-align: left;
   white-space: wrap;
   line-height: 15px;
-  margin-top: 12px;
+  margin-bottom: 8px;
 }
 
 .text_24 {
@@ -45,6 +47,7 @@
   font-family: Arial-BoldMT;
   text-align: left;
   line-height: 26px;
+  margin-bottom: 8px;
 }
 
 .text_25 {
@@ -54,7 +57,7 @@
   font-family: Verdana;
   text-align: left;
   line-height: 28px;
-  margin-top: 12px;
+  margin-bottom: 8px;
 }
 
 .text_26 {
@@ -70,6 +73,7 @@
 
 .start {
   color: #3B78F0;
+  margin-bottom: 8px;
 }
 
 .app {
@@ -433,7 +437,8 @@
   }
 }
 .app .content .text_content {
-  height: 40vh;
+  padding: 20px;
+  min-height: 40vh;
 }
 .app .content .author {
   display: flex;
@@ -550,8 +555,9 @@
   background-color: rgb(237, 237, 237);
   height: 60px;
   display: flex;
-  overflow: auto;
   box-sizing: content-box;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 .app .content .top_recommendation .active {
   overflow-wrap: break-word;
@@ -663,7 +669,7 @@
   white-space: nowrap;
   line-height: 28px;
 }
-.app .content .read_more span:nth-child(2) {
+.app .content .read_more a span:nth-child(1) {
   color: rgb(60, 120, 240);
 }
 @media screen and (max-width: 900px) {
