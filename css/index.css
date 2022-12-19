@@ -266,6 +266,41 @@
   width: 75%;
   padding-right: 20px;
 }
+.app .content .details .details_body .left .included {
+  margin-top: 10px;
+  display: flex;
+  overflow: auto;
+  padding-top: 20px;
+}
+.app .content .details .details_body .left .included .included_item {
+  width: 180px;
+  margin: 0 20px;
+  position: relative;
+  background-color: #eee;
+  text-align: center;
+}
+.app .content .details .details_body .left .included .included_item .tag {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #111;
+  font-weight: 600;
+  left: -10px;
+  top: -10px;
+}
+.app .content .details .details_body .left .included .included_item img {
+  width: 100%;
+}
+.app .content .details .details_body .left .included .included_item button {
+  background-color: rgb(56, 116, 244);
+  height: 35px;
+  width: 100%;
+  margin: 11px 0;
+  color: #fff;
+}
 .app .content .details .details_body .left .recommended_by_the_author {
   padding-bottom: 20px;
   border-bottom: 4px solid #111;
@@ -290,6 +325,38 @@
 .app .content .details .details_body .right {
   width: 25%;
   background: #ccc;
+}
+.app .content .details .details_body .right .post {
+  padding: 20px;
+  background: white;
+  border: 1px solid #eee;
+  padding-bottom: 50px;
+}
+.app .content .details .details_body .right .post .top {
+  display: flex;
+}
+.app .content .details .details_body .right .post .top img {
+  margin-right: 10px;
+}
+.app .content .details .details_body .right .post .top .right_flex {
+  display: flex;
+  flex-direction: column;
+}
+.app .content .details .details_body .right .post .top .right_flex .text_21 {
+  margin: 0;
+}
+.app .content .details .details_body .right .post .input {
+  height: 35px;
+  border: 1px solid rgb(215, 215, 215);
+  width: 100%;
+  margin: 10px 0;
+}
+.app .content .details .details_body .right .post button {
+  background-color: rgb(56, 116, 244);
+  height: 35px;
+  width: 100%;
+  margin: 11px 0;
+  color: #fff;
 }
 @media screen and (max-width: 900px) {
   .app .content .details {
