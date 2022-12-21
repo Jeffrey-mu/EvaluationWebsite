@@ -38,7 +38,7 @@ window.onload = function () {
         else
           this.successSearchResult = []
         document.querySelector(SEARCH_RESULT).innerHTML = this.successSearchResult.map(item => `
-            <a href="" class="article_item">
+            <a href="${item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id}" class="article_item">
                 <img class="image_2" referrerpolicy="no-referrer"
                   src="${item.first_picture}" />
                 <div class="article_item_text-group_1">
@@ -46,7 +46,7 @@ window.onload = function () {
                     ${item.title}
                   </div>
                   <div class="text_23">
-                    By ${item.author_name} published ${item.release_time}
+                    By ${item.author_name} published ${Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24))} days ago
                   </div>
                   <div class="start">
                   ${(() => { let newArray = new Array(Number(Math.ceil(item.score))).fill('★'); return newArray.join('') })()}<spa>☆☆☆☆☆☆</span>
@@ -253,7 +253,7 @@ window.onload = function () {
             {{details_info.title}}
             </h2>
             <p class="text_23">
-              <span class="start">★★★★★☆</span><span class="text_23">By Millie Fender published 26 days ago</span>
+             <span class="text_23">By {{details_info.author_name}} published {{Math.floor((+new Date() - +new Date(details_info.release_time)) / 1000 / (60 * 60 * 24)) }} days ago</span>
             </p>
             <p class="text_25">
             {{details_info.description}}
@@ -319,12 +319,12 @@ window.onload = function () {
                 <div class="recommended_by_left">
                   <div class="author_nav">MORE ABOUT ELECTRONICS</div>
                   <div class="author_article_list">
-                    <div class="author_article_list_item" v-for="item in details_info.category_recommend_list">
+                    <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id" class="author_article_list_item" v-for="item in details_info.category_recommend_list">
                       <img
                         :src="item.first_picture"
                         alt="">
                       <a class="text_21">{{item.title}}►</a>
-                    </div>
+                    </a>
                   </div>
                 </div>
                 <div class="recommended_by_right">
@@ -333,12 +333,12 @@ window.onload = function () {
                     <span>MORE►</span>
                   </div>
                   <div class="author_article_list">
-                    <div class="author_article_list_item" v-for="item in details_info.newest_recommend">
+                    <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id" class="author_article_list_item" v-for="item in details_info.newest_recommend">
                       <img
                         :src="item.first_picture"
                         alt="">
                       <a class="text_21">{{item.title}}►</a>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -404,7 +404,7 @@ window.onload = function () {
     {{details_info.title}}
   </h2>
   <p class="text_23">
-    <span class="start">★★★★★☆</span><span class="text_23">By Millie Fender published 26 days ago</span>
+    <span class="start" style="display: inline_block"><span v-for="el in details_info.score">★</span><span v-for="el in 5">☆</span></span><span class="text_23"> By {{details_info.author_name}} published {{Math.floor((+new Date() - +new Date(details_info.release_time)) / 1000 / (60 * 60 * 24)) }} days ago</span>
   </p>
   <p class="text_25">
     {{details_info.description}}
@@ -445,10 +445,10 @@ window.onload = function () {
           <div class="recommended_by_left">
             <div class="author_nav">MORE ABOUT ELECTRONICS</div>
             <div class="author_article_list">
-              <div class="author_article_list_item" v-for="item in details_info.category_recommend_list">
+              <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id" class="author_article_list_item" v-for="item in details_info.category_recommend_list">
                 <img :src="item.first_picture" alt="">
                 <a class="text_21">{{item.title}}►</a>
-              </div>
+              </a>
             </div>
           </div>
           <div class="recommended_by_right">
@@ -457,10 +457,10 @@ window.onload = function () {
               <span>MORE►</span>
             </div>
             <div class="author_article_list">
-              <div class="author_article_list_item" v-for="item in details_info.newest_recommend">
+              <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id" class="author_article_list_item" v-for="item in details_info.newest_recommend">
                 <img :src="item.first_picture" alt="">
                 <a class="text_21">{{item.title}}►</a>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -559,7 +559,7 @@ window.onload = function () {
                     {{item.title}}
                   </h2>
                   <p class="text_23">
-                    By {{item.author_name}} published {{item.release_time}}
+                     By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
                   </p>
                 </div>
               </a>
@@ -581,7 +581,7 @@ window.onload = function () {
                     {{item.title}}
                   </div>
                   <div class="text_23">
-                    By {{item.author_name}} published {{item.release_time}}
+                     By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
                   </div>
                   <div class="start">
                    <span v-for="el in item.score">★</span><span v-for="el in 5">☆</span>
@@ -656,7 +656,7 @@ window.onload = function () {
                     {{item.title}}
                   </h2>
                   <p class="text_23">
-                    By {{item.author_name}} published {{item.release_time}}
+                     By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
                   </p>
                 </div>
               </a>
@@ -678,7 +678,7 @@ window.onload = function () {
                     {{item.title}}
                   </div>
                   <div class="text_23">
-                    By {{item.author_name}} published {{item.release_time}}
+                     By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
                   </div>
                   <div class="text_22">
                     {{item.main_title}}
@@ -750,7 +750,7 @@ window.onload = function () {
               {{item.title}}
             </h2>
             <p class="text_23">
-              By {{item.author_name}} published {{item.release_time}}
+               By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
             </p>
           </div>
         </a>
@@ -772,7 +772,7 @@ window.onload = function () {
               {{item.title}}
             </div>
             <div class="text_23">
-              By {{item.author_name}} published {{item.release_time}}
+               By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
             </div>
             <div class="start" v-if="item.type == 1">
               <span v-for="el in item.score">★</span><span v-for="el in 5">☆</span>
@@ -957,7 +957,7 @@ window.onload = function () {
           {{item.title}}
         </h2>
         <p class="text_23">
-          By {{item.author_name}} published {{item.release_time}}
+          By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
         </p>
       </div>
     </a>
@@ -1010,7 +1010,7 @@ window.onload = function () {
           {{item.title}}
         </h2>
         <p class="text_23">
-          By {{item.author_name}} published {{item.release_time}}
+           By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
         </p>
       </div>
     </a>
@@ -1035,7 +1035,7 @@ window.onload = function () {
           {{item.main_title}}
         </p>
         <p class="text_23">
-          By {{item.author_name}} published {{item.release_time}}
+          By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
         </p>
       </div>
     </a>

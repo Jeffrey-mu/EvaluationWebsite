@@ -1,1 +1,27 @@
-{"author_id":"7","author_introduction":"Lucas Jones is the Technical Editor for Top Ten Reviews. He has extensive experience in technology and gaming journalism, having published on multiple platforms. You&#39;ll find him covering everything from smartphones and home computers to 3D printers and headsets.","author_head_portrait":"/uploadsImg/1671161760571.jpeg","author_name":"Lucas Jones","article_list":[{"id":47,"type":2,"title":" EZVIZ DB1C Video Doorbell Review","main_title":"EZVIZ DB1C Video Doorbell Review: A Complete Guide","release_time":"2022-10-12 00:00:00","first_picture":"/uploadsImg/1671422613421.jpeg","score":"4.5"},{"id":46,"type":1,"title":" Best Vacuum Cleaners for Home ","main_title":"Best Vacuum Cleaners for Home for 2022","release_time":"2022-10-12 00:00:00","first_picture":"/uploadsImg/1671421879651.jpeg","score":"5"}],"total":42}
+{
+  "author_id": "7",
+  "author_introduction": "Lucas Jones is the Technical Editor for Top Ten Reviews. He has extensive experience in technology and gaming journalism, having published on multiple platforms. You&#39;ll find him covering everything from smartphones and home computers to 3D printers and headsets.",
+  "author_head_portrait": "http://47.104.212.164:3000/uploadsImg/1671161760571.jpeg",
+  "author_name": "Lucas Jones",
+  "article_list": [
+    {
+      "id": 47,
+      "type": 2,
+      "title": " EZVIZ DB1C Video Doorbell Review",
+      "main_title": "EZVIZ DB1C Video Doorbell Review: A Complete Guide",
+      "release_time": "2022-10-12 00:00:00",
+      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671422613421.jpeg",
+      "score": "4.5"
+    },
+    {
+      "id": 46,
+      "type": 1,
+      "title": " Best Vacuum Cleaners for Home ",
+      "main_title": "Best Vacuum Cleaners for Home for 2022",
+      "release_time": "2022-10-12 00:00:00",
+      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671421879651.jpeg",
+      "score": "5"
+    }
+  ],
+  "total": 42
+}

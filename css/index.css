@@ -509,6 +509,7 @@
 }
 .app .content .typePage .left .typePage_top_content .left .image_2 {
   width: 100%;
+  aspect-ratio: 16/9;
 }
 .app .content .typePage .left .typePage_top_content .right {
   width: 50%;
@@ -781,6 +782,7 @@
 }
 .app .content .top_content .right .image_2 {
   width: 100%;
+  aspect-ratio: 16/9;
 }
 .app .content .top_content .left {
   display: flex;
