@@ -74,6 +74,8 @@
 .start {
   color: #3B78F0;
   margin-bottom: 8px;
+  width: 80px;
+  overflow: hidden;
 }
 
 .app {
@@ -115,6 +117,7 @@
   border-radius: 50px;
   height: 60%;
   font-size: 20px;
+  width: 100%;
 }
 .app .header .search_box,
 .app .header .phone_menu,
@@ -122,6 +125,9 @@
   display: none;
   line-height: 70px;
   padding: 0 20px;
+}
+.app .header .text-wrapper_2 {
+  display: block;
 }
 .app .header .text-wrapper_1 .text_1 {
   line-height: 70px;
@@ -152,6 +158,9 @@
 .app .header .phone_search {
     display: block;
     font-size: 20px;
+  }
+  .app .header .text-wrapper_1 {
+    display: none;
   }
   .app .header .text-wrapper_1 .text_1,
 .app .header .text-wrapper_1 .text_2 {
@@ -208,10 +217,11 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9999;
 }
 .app .menu_phone .menu_phone_content {
   position: fixed;
-  width: 375px;
+  width: 100%;
   top: 0;
   left: 0;
   height: 812px;
@@ -219,7 +229,6 @@
 }
 .app .menu_phone .menu_phone_content .box_1 {
   background-color: rgb(255, 255, 255);
-  margin-right: 25px;
   padding: 12px 297px 12px 25px;
 }
 .app .menu_phone .menu_phone_content .block_1 {
@@ -266,6 +275,12 @@
   width: 75%;
   padding-right: 20px;
 }
+@media screen and (max-width: 900px) {
+  .app .content .details .details_body .left {
+    padding-right: 0;
+    width: 100%;
+  }
+}
 .app .content .details .details_body .left .included {
   margin-top: 10px;
   display: flex;
@@ -298,17 +313,97 @@
   background-color: rgb(56, 116, 244);
   height: 35px;
   width: 100%;
-  margin: 11px 0;
+  margin-top: 11px;
   color: #fff;
+}
+.app .content .details .details_body .left img {
+  max-width: 100%;
+}
+.app .content .details .details_body .left .amazon_adv {
+  display: flex;
+  overflow: auto;
+}
+.app .content .details .details_body .left .amazon_adv .amazon_adv_item {
+  margin: 10px;
+  box-shadow: 0px 3px 3px 0px rgb(232, 232, 232);
+  padding: 20px;
+  text-align: center;
+  width: 225px;
+}
+.app .content .details .details_body .left .amazon_adv .amazon_adv_item .amazon_adv_price {
+  color: #3B78F0;
+  margin: 5px 0;
+}
+.app .content .details .details_body .left .amazon_adv .amazon_adv_item img {
+  height: 125px;
+  width: 100%;
+}
+.app .content .details .details_body .left .amazon_adv .amazon_adv_item a {
+  display: inline-block;
+  width: 100%;
+  border: 1px solid #3B78F0;
+  color: #3B78F0;
+  padding: 8px;
+  font-weight: 600;
+}
+.app .content .details .details_body .left .amazon_adv_item_des {
+  margin: 20px 0;
+}
+.app .content .details .details_body .left .amazon_adv_reviews .amazon_adv_item {
+  height: 60px;
+  margin: 0px;
+  justify-content: space-between;
+  padding: 0;
+  box-shadow: none;
+  display: flex;
+  width: 100%;
+}
+.app .content .details .details_body .left .amazon_adv_reviews .amazon_adv_item .amazon_adv_price {
+  color: #3B78F0;
+  margin: 5px 0;
+  font-weight: 600;
+  font-size: 19px;
+}
+@media screen and (max-width: 900px) {
+  .app .content .details .details_body .left .amazon_adv_reviews .amazon_adv_item .amazon_adv_title {
+    display: none;
+  }
+}
+.app .content .details .details_body .left .amazon_adv_reviews .amazon_adv_item img {
+  width: 80px;
+  height: 50px;
+}
+.app .content .details .details_body .left .amazon_adv_reviews .amazon_adv_item a {
+  display: inline-block;
+  width: 100px;
+  border: 1px solid #3B78F0;
+  color: #3B78F0;
+  padding: 8px;
+  font-weight: 600;
+  height: 40px;
 }
 .app .content .details .details_body .left .recommended_by_the_author {
   padding-bottom: 20px;
+  display: flex;
   border-bottom: 4px solid #111;
 }
+.app .content .details .details_body .left .recommended_by_the_author .recommended_by_right {
+  flex: 0.3;
+  background: #EAEAEA;
+}
+.app .content .details .details_body .left .recommended_by_the_author .recommended_by_right .author_nav {
+  background: #666;
+  justify-content: space-between;
+}
+.app .content .details .details_body .left .recommended_by_the_author .recommended_by_left {
+  flex: 0.6;
+}
 .app .content .details .details_body .left .recommended_by_the_author .author_nav {
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
   line-height: 50px;
   background: #333;
-  text-align: center;
   color: #fff;
 }
 .app .content .details .details_body .left .recommended_by_the_author .author_article_list {
@@ -319,12 +414,38 @@
 .app .content .details .details_body .left .recommended_by_the_author .author_article_list .author_article_list_item {
   display: flex;
   flex-direction: column;
-  flex: 0.3;
-  width: 30%;
+  margin: 0 10px;
+  flex: 1;
+}
+@media screen and (max-width: 900px) {
+  .app .content .details .details_body .left .recommended_by_the_author {
+    flex-direction: column;
+  }
+  .app .content .details .details_body .left .recommended_by_the_author .recommended_by_right {
+    margin-top: 20px;
+  }
+  .app .content .details .details_body .left .recommended_by_the_author .author_article_list {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  .app .content .details .details_body .left .recommended_by_the_author .author_article_list .author_article_list_item {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    margin: 0;
+  }
+  .app .content .details .details_body .left .recommended_by_the_author .author_article_list .author_article_list_item img {
+    margin-right: 0px;
+  }
 }
 .app .content .details .details_body .right {
   width: 25%;
   background: #ccc;
+}
+@media screen and (max-width: 900px) {
+  .app .content .details .details_body .right {
+    display: none;
+  }
 }
 .app .content .details .details_body .right .post {
   padding: 20px;
@@ -398,6 +519,7 @@
 }
 .app .content .typePage .left .typePage_top_content .right .right_item {
   display: flex;
+  margin-bottom: 20px;
 }
 .app .content .typePage .left .typePage_top_content .right .right_item .right_item_text-group_1 {
   display: flex;
@@ -484,6 +606,7 @@
   padding: 20px;
   color: #3B78F0;
 }
+.app .content .typePage .left .article_block .article_limit_page a,
 .app .content .typePage .left .article_block .article_limit_page span {
   overflow-wrap: break-word;
   color: rgb(56, 116, 244);
@@ -493,6 +616,10 @@
   white-space: nowrap;
   line-height: 24px;
   margin: 4px 0 0 25px;
+}
+.app .content .typePage .left .article_block .article_limit_page .active {
+  padding: 2px 10px;
+  background-color: #eee;
 }
 .app .content .typePage .right {
   width: 25%;
@@ -568,6 +695,7 @@
   padding: 20px;
   color: #3B78F0;
 }
+.app .content .author .left .article_block .article_limit_page a,
 .app .content .author .left .article_block .article_limit_page span {
   overflow-wrap: break-word;
   color: rgb(56, 116, 244);
@@ -577,6 +705,10 @@
   white-space: nowrap;
   line-height: 24px;
   margin: 4px 0 0 25px;
+}
+.app .content .author .left .article_block .article_limit_page .active {
+  padding: 2px 10px;
+  background-color: #eee;
 }
 .app .content .author .right {
   width: 25%;
@@ -669,6 +801,7 @@
   width: 55%;
 }
 .app .content .top_content .left .left_item_hr {
+  margin: 10px 0;
   width: 100%;
   border: 1px solid #111;
 }
