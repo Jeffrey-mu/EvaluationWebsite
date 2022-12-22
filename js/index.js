@@ -29,7 +29,7 @@ window.onload = function () {
       searchKeys: ""
     },
     async mounted() {
-      this.searchResult = await getJson('../api/search.json');
+      this.searchResult = await getJson('../api/search/search.json');
     },
     watch: {
       searchKeys(value, old) {
@@ -64,7 +64,8 @@ window.onload = function () {
         document.querySelector('.menu_phone').style.display = 'block';
       },
       shareLink(path) {
-
+        let goPath = path.replace('xxxxx', window.location.href)
+        window.open(goPath)
       }
     },
     template: `<div class="header">
@@ -85,14 +86,14 @@ window.onload = function () {
       </div>
       <div class="share">
         <img class="label_1" referrerpolicy="no-referrer"
-          src="../images/faceBook" @click="shareLink('')"/>
-        <img class="label_2" @click="shareLink('')" referrerpolicy="no-referrer"
+          src="../images/faceBook" @click="shareLink('https://www.facebook.com/sharer/sharer.php?u=xxxxx')"/>
+        <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the Evaluation station website.')" referrerpolicy="no-referrer"
           src="../images/Twitter" />
-        <img class="label_3" @click="shareLink('')" referrerpolicy="no-referrer"
+        <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the Evaluation station website.')" referrerpolicy="no-referrer"
           src="../images/Q" />
-        <img class="label_4" @click="shareLink('')" referrerpolicy="no-referrer"
+        <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the Evaluation station website.&url=xxxxx')" referrerpolicy="no-referrer"
           src="../images/San" />
-        <img class="label_5" @click="shareLink('')" referrerpolicy="no-referrer"
+        <img class="label_5" @click="shareLink('mailto:info@example.com?&subject=&cc=&bcc=&body=xxxxx%0A')" referrerpolicy="no-referrer"
           src="../images/Email" />
         <div class="search_box_icon" v-if="!showSearch">
           <a href="./search.html" class="icon iconfont" style="line-height: 30px;margin: 0 10px;font-size: 23px">
@@ -237,11 +238,20 @@ window.onload = function () {
     el: DETAILS_BESTPICKS,
     data: {
       details_info: {},
+      active: 0
     },
     async mounted() {
       // 获取查询参数
       let id = window.location.search.split('=')[1].split('&')[0];
       this.details_info = await getJson('../api/details/details-' + id + '.json');
+      window.onscroll = function (e) {
+        let arr = [...document.querySelectorAll('.app .content .details .details_body .left .included .included_item img')]
+        if (window.pageYOffset > 400) {
+          arr.map(el => el.style.display = "none")
+        } else {
+          arr.map(el => el.style.display = "block")
+        }
+      }
     },
     template: `<div class="details detailsBestpicks">
         <div class="details_body">
@@ -262,21 +272,21 @@ window.onload = function () {
               included in this guide:
             </p>
             <div class="included">
-              <div v-for="item, index in details_info.content_list">
-               <div class="included_item" v-for="amazon_adv, count in item.amazon_adv">
+              <template v-for="item, index in details_info.content_list">
+               <a :href="'#' + amazon_adv.id" class="included_item" v-for="amazon_adv, count in item.amazon_adv" @click="active = index + count">
                 <!--序号1显示红色-->
-                <div class="tag" :style="{backgroundColor: index + count == 0 ? 'red' : '', color: index + count == 0 ? '#fff' : ''}">
+                <div class="tag" :style="{backgroundColor: index + count == active ? 'red' : '', color: index + count == active ? '#fff' : ''}">
                 <!--内外下标相加得到序号-->
                   {{index + count + 1}}
                 </div>
                 <img
                   :src="amazon_adv.picture"
                   alt="">
-                <h2>Fire&nbsp;Sense</h2>
-                <p>Hiland&nbsp;HLDSO…</p>
-                <button>CHECK PRICE</button>
-              </div>
-            </div>
+                <h2 class="text_22">{{amazon_adv.title}}</h2>
+                <!--<p>Hiland&nbsp;HLDSO…</p>-->
+                <a :href="amazon_adv.link"><button>CHECK PRICE</button></a>
+              </template>
+            </a>
             </div>
             <div class="content_line"></div>
             <h2 class="text_21">
@@ -285,7 +295,7 @@ window.onload = function () {
             <img width="100%" class="details_img"
               :src="details_info.first_picture"
               alt="">
-            <div v-for="item in details_info.content_list">
+            <div style="margin-top: 20px" v-for="item in details_info.content_list" :id="item.amazon_adv[0] ? item.amazon_adv[0].id : ''">
               <div v-html="item.content"></div>
               <!--<div class="amazon_adv">
                 <div class="amazon_adv_item" v-for="amazon_adv in item.amazon_adv">
@@ -507,6 +517,7 @@ window.onload = function () {
 </div>
 `
   })
+
   // reviewsPage
   renderElement(REVIEWS_PAGE, {
     el: REVIEWS_PAGE,
@@ -605,6 +616,7 @@ window.onload = function () {
         </div>
       </div>`
   })
+
   // bestpicksPage
   renderElement(BESTPICKS_PAGE, {
     el: BESTPICKS_PAGE,
@@ -699,6 +711,7 @@ window.onload = function () {
         </div>
       </div>`
   })
+
   // channelPage
   renderElement(CHANNEL_PAGE, {
     el: CHANNEL_PAGE,
@@ -797,6 +810,7 @@ window.onload = function () {
 </div>
 `
   })
+
   // author_content
   renderElement(AUTHOR_CONTENT, {
     el: AUTHOR_CONTENT,

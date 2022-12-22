@@ -217,6 +217,7 @@
       align-items: center;
 
       img {
+        width: 25px;
         margin: 0 .2rem;
       }
     }
@@ -309,7 +310,7 @@
     margin: 0 auto;
 
     .details {
-      padding: 20px 0;
+      padding: 10px 0;
 
       .details_img {
         margin-top: 20px;
@@ -340,15 +341,21 @@
             display: flex;
             overflow: auto;
             padding-top: 20px;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
 
             .included_item {
-              width: 180px;
-              margin: 0 20px;
+              display: inline-block;
+              width: 150px;
+              margin: 0 10px;
+              padding-bottom: 10px;
               position: relative;
-              background-color: #eee;
+              background-color: #ddd;
               text-align: center;
 
               .tag {
+                box-shadow: 1px 1px 1px 1px #e3e3e3;
                 position: absolute;
                 border-radius: 50%;
                 background-color: #fff;
@@ -359,6 +366,11 @@
                 font-weight: 600;
                 left: -10px;
                 top: -10px;
+              }
+
+              h2 {
+                height: 60px;
+                text-align: center;
               }
 
               img {
