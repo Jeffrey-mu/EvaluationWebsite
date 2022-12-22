@@ -1,7 +1,7 @@
 {
   "author_id": "7",
   "author_introduction": "Lucas Jones is the Technical Editor for Top Ten Reviews. He has extensive experience in technology and gaming journalism, having published on multiple platforms. You&#39;ll find him covering everything from smartphones and home computers to 3D printers and headsets.",
-  "author_head_portrait": "http://47.104.212.164:3000/uploadsImg/1671161760571.jpeg",
+  "author_head_portrait": "/uploadsImg/1671161760571.jpeg",
   "author_name": "Lucas Jones",
   "article_list": [
     {
@@ -10,7 +10,7 @@
       "title": "Best bike computers",
       "main_title": "Things You Need To Consider While Buying The Best Bike Computers",
       "release_time": "2022-10-15 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671431406874.jpeg",
+      "first_picture": "/uploadsImg/1671431406874.jpeg",
       "score": ""
     },
     {
@@ -19,7 +19,7 @@
       "title": "Best air purifiers: Including HEPA air purifiers for allergies",
       "main_title": "Everything You Need To Know About Best Air Purifiers Before Purchasing",
       "release_time": "2022-10-15 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671431270668.jpeg",
+      "first_picture": "/uploadsImg/1671431270668.jpeg",
       "score": ""
     },
     {
@@ -28,7 +28,7 @@
       "title": "Best travel pillows: Upgrade your travels with these ergonomic accessories",
       "main_title": "Everything You Need To Know About Best Travel Pillows Before Purchasing",
       "release_time": "2022-10-15 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671431117002.jpeg",
+      "first_picture": "/uploadsImg/1671431117002.jpeg",
       "score": ""
     },
     {
@@ -37,7 +37,7 @@
       "title": "Best Travel Backpacks ",
       "main_title": "Best Travel Backpacks: Top Best Travel Backpacks Of 2022",
       "release_time": "2022-10-13 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671430914329.jpeg",
+      "first_picture": "/uploadsImg/1671430914329.jpeg",
       "score": ""
     },
     {
@@ -46,7 +46,7 @@
       "title": "Best Hardshell Luggage",
       "main_title": "Best Hardshell Luggage: Top Hardshell Luggage Of 2022",
       "release_time": "2022-10-13 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671430548361.jpeg",
+      "first_picture": "/uploadsImg/1671430548361.jpeg",
       "score": ""
     },
     {
@@ -55,7 +55,7 @@
       "title": "Best eyeglasses online: Where to buy glasses online",
       "main_title": "Best Eyeglasses Online: Tips For Buying Glasses Online In 2022",
       "release_time": "2022-10-13 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671430407470.jpeg",
+      "first_picture": "/uploadsImg/1671430407470.jpeg",
       "score": ""
     },
     {
@@ -64,7 +64,7 @@
       "title": "Best Ergonomic Office Chairs",
       "main_title": "Best Ergonomic Office Chairs: Top Picks from Nouhaus Ergo3D, Ticova, and More",
       "release_time": "2022-10-13 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671430174157.jpeg",
+      "first_picture": "/uploadsImg/1671430174157.jpeg",
       "score": ""
     },
     {
@@ -73,7 +73,7 @@
       "title": "Best pressure washers",
       "main_title": "Best Pressure Washer: Top Superb 2022 Pressure Washer",
       "release_time": "2022-10-14 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671425273549.jpeg",
+      "first_picture": "/uploadsImg/1671425273549.jpeg",
       "score": ""
     },
     {
@@ -82,7 +82,7 @@
       "title": "Best chainsaws",
       "main_title": "Best Chainsaws: Top Excellent Chainsaws 2022 ",
       "release_time": "2022-10-14 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671425036693.jpeg",
+      "first_picture": "/uploadsImg/1671425036693.jpeg",
       "score": ""
     },
     {
@@ -91,7 +91,7 @@
       "title": "Best air purifiers",
       "main_title": "Best Air Purifiers: Top Air Purifiers 2022",
       "release_time": "2022-10-13 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671424880923.jpeg",
+      "first_picture": "/uploadsImg/1671424880923.jpeg",
       "score": ""
     }
   ],

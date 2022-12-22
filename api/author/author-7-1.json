@@ -1,7 +1,7 @@
 {
   "author_id": "7",
   "author_introduction": "Lucas Jones is the Technical Editor for Top Ten Reviews. He has extensive experience in technology and gaming journalism, having published on multiple platforms. You&#39;ll find him covering everything from smartphones and home computers to 3D printers and headsets.",
-  "author_head_portrait": "http://47.104.212.164:3000/uploadsImg/1671161760571.jpeg",
+  "author_head_portrait": "/uploadsImg/1671161760571.jpeg",
   "author_name": "Lucas Jones",
   "article_list": [
     {
@@ -19,7 +19,7 @@
       "title": "Oclean X Pro Elite the Smart Toothbrush review",
       "main_title": "Oclean X Pro Elite the Smart Toothbrush Review",
       "release_time": "2022-12-19 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671434281320.jpeg",
+      "first_picture": "/uploadsImg/1671434281320.jpeg",
       "score": ""
     },
     {
@@ -28,7 +28,7 @@
       "title": "Thumper Sport Percussive Massager review",
       "main_title": "Excellent Review Of The Thumper Sport Percussive Massager, The Year 2022",
       "release_time": "2022-12-19 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671434147685.jpeg",
+      "first_picture": "/uploadsImg/1671434147685.jpeg",
       "score": ""
     },
     {
@@ -37,7 +37,7 @@
       "title": "Vivo Standing Height Adjustable Desk Converter review",
       "main_title": "Vivo Best Standing Height and Adjustable Desk Converter review Of 2022",
       "release_time": "2022-12-19 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671434003391.jpeg",
+      "first_picture": "/uploadsImg/1671434003391.jpeg",
       "score": ""
     },
     {
@@ -46,7 +46,7 @@
       "title": "Molekule Air Pro review",
       "main_title": "Great Review Of The Molekule Air Pro Of 2022",
       "release_time": "2022-12-19 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671433887197.jpeg",
+      "first_picture": "/uploadsImg/1671433887197.jpeg",
       "score": ""
     },
     {
@@ -55,7 +55,7 @@
       "title": "Varier Variable Plus kneeling chair review",
       "main_title": "Outstanding Review Of The Kneeling Chair Varier Variable Plus 2022",
       "release_time": "2022-12-19 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671433668197.jpeg",
+      "first_picture": "/uploadsImg/1671433668197.jpeg",
       "score": ""
     },
     {
@@ -64,7 +64,7 @@
       "title": "Marshall Emberton speaker review",
       "main_title": "Great Review Of Marshall Emberton As A Speaker In 2022",
       "release_time": "2022-12-19 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671433522528.jpeg",
+      "first_picture": "/uploadsImg/1671433522528.jpeg",
       "score": ""
     },
     {
@@ -73,7 +73,7 @@
       "title": "Logitech C922 Pro Stream review",
       "main_title": "Advanced Review of the 2022 Logitech C922 Pro Stream",
       "release_time": "2022-12-19 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671433407903.jpeg",
+      "first_picture": "/uploadsImg/1671433407903.jpeg",
       "score": ""
     },
     {
@@ -82,7 +82,7 @@
       "title": "Logitech Streamcam review",
       "main_title": "Review of the Best Logitech Streamcam for 2022",
       "release_time": "2022-12-19 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671433345634.jpeg",
+      "first_picture": "/uploadsImg/1671433345634.jpeg",
       "score": ""
     },
     {
@@ -91,7 +91,7 @@
       "title": "Logitech HD C615 review",
       "main_title": "Great Review of Logitech HD C615 2022",
       "release_time": "2022-12-19 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671433160206.jpeg",
+      "first_picture": "/uploadsImg/1671433160206.jpeg",
       "score": ""
     }
   ],

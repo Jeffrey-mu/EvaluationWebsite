@@ -1,7 +1,7 @@
 {
   "author_id": "7",
   "author_introduction": "Lucas Jones is the Technical Editor for Top Ten Reviews. He has extensive experience in technology and gaming journalism, having published on multiple platforms. You&#39;ll find him covering everything from smartphones and home computers to 3D printers and headsets.",
-  "author_head_portrait": "http://47.104.212.164:3000/uploadsImg/1671161760571.jpeg",
+  "author_head_portrait": "/uploadsImg/1671161760571.jpeg",
   "author_name": "Lucas Jones",
   "article_list": [
     {
@@ -10,7 +10,7 @@
       "title": "Best handheld vacuums",
       "main_title": "Best Handheld Vacuums: Top Outstanding Handheld Vacuums of 2022",
       "release_time": "2022-10-12 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671424703693.jpeg",
+      "first_picture": "/uploadsImg/1671424703693.jpeg",
       "score": ""
     },
     {
@@ -19,7 +19,7 @@
       "title": "Best handheld vacuums",
       "main_title": "Best Handheld Vacuums: Top Outstanding Handheld Vacuums of 2022",
       "release_time": "2022-10-12 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671424315290.jpeg",
+      "first_picture": "/uploadsImg/1671424315290.jpeg",
       "score": ""
     },
     {
@@ -28,7 +28,7 @@
       "title": "Best over-the-range microwaves ",
       "main_title": "Best Over-The-Range Microwaves: Top Best Over-The-Range Microwaves 2022 ",
       "release_time": "2022-10-12 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671424164135.jpeg",
+      "first_picture": "/uploadsImg/1671424164135.jpeg",
       "score": ""
     },
     {
@@ -37,7 +37,7 @@
       "title": "Best gas grills",
       "main_title": "Best Gas Grills: Top Exceptional Best Gas Grills 2022",
       "release_time": "2022-10-12 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671424000427.jpeg",
+      "first_picture": "/uploadsImg/1671424000427.jpeg",
       "score": ""
     },
     {
@@ -46,7 +46,7 @@
       "title": "Best video doorbells",
       "main_title": "Best Video Doorbells: Top Exceptional Video Doorbells 2022",
       "release_time": "2022-10-12 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671423852441.jpeg",
+      "first_picture": "/uploadsImg/1671423852441.jpeg",
       "score": ""
     },
     {
@@ -55,7 +55,7 @@
       "title": "Best gas lawn mowers",
       "main_title": "Best Gas Lawn Mowers: Top Gas Lawn Mowers 2022 ",
       "release_time": "2022-10-12 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671423692469.jpeg",
+      "first_picture": "/uploadsImg/1671423692469.jpeg",
       "score": ""
     },
     {
@@ -64,7 +64,7 @@
       "title": "Best wireless security cameras",
       "main_title": "Best Wireless Security Cameras: Top Excellent Wireless Security Cameras 2022",
       "release_time": "2022-10-12 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671423505277.jpeg",
+      "first_picture": "/uploadsImg/1671423505277.jpeg",
       "score": ""
     },
     {
@@ -73,7 +73,7 @@
       "title": "Best Solar Pool Covers ",
       "main_title": "The 5 Best Solar Pool Covers Of 2022",
       "release_time": "2022-10-12 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671423297267.jpeg",
+      "first_picture": "/uploadsImg/1671423297267.jpeg",
       "score": ""
     },
     {
@@ -82,7 +82,7 @@
       "title": "Dyson V12 Detect Slim Review",
       "main_title": "Dyson V12 Detect Slim Vacuum Cleaner Review ",
       "release_time": "2022-10-12 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671423117676.jpeg",
+      "first_picture": "/uploadsImg/1671423117676.jpeg",
       "score": ""
     },
     {
@@ -91,7 +91,7 @@
       "title": " The Best Robot Vacuums for 2022 ",
       "main_title": "Everything You Need to Know About the Best Robot Vacuums For 2022",
       "release_time": "2022-10-12 00:00:00",
-      "first_picture": "http://47.104.212.164:3000/uploadsImg/1671422885339.jpeg",
+      "first_picture": "/uploadsImg/1671422885339.jpeg",
       "score": "4.5"
     }
   ],

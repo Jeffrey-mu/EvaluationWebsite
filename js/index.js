@@ -760,7 +760,7 @@ window.onload = function () {
     <div class="article_block">
       <div class="article_title">
         <span class="text_22">
-          Latest Best-Picks
+          Latest Articles
         </span>
       </div>
       <div class="article_list">
