@@ -260,6 +260,20 @@
 .app .content .details {
   padding: 10px 0;
 }
+.app .content .details .details_subtitle {
+  border-bottom: 3px solid #E71D1D;
+  margin: 10px 0;
+}
+.app .content .details .details_subtitle div {
+  text-align: center;
+  width: 300px;
+  margin: auto;
+  padding: 5px 20px;
+  background-color: #E71D1D;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 3px 2px 0 0;
+}
 .app .content .details .details_img {
   margin-top: 20px;
 }
@@ -298,7 +312,7 @@
   margin: 0 10px;
   padding-bottom: 10px;
   position: relative;
-  background-color: #ddd;
+  background-color: #F7F7F7;
   text-align: center;
 }
 .app .content .details .details_body .left .included .included_item .tag {

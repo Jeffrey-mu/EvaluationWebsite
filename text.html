@@ -1,129 +1,118 @@
-<div class="index_content">
-  <div class="top_content">
-    <a class="right" :href="'detailsBestpicks.html?id=' + bestpicksResult1[0].id">
-      <img class="image_2" referrerpolicy="no-referrer" :src="bestpicksResult1[0].first_picture" />
-      <div class="text-group_1 flex-col ">
-        <h2 class="text_21">
-          {{bestpicksResult1[0].title}}
-        </h2>
-        <p class="text_22">
-          {{bestpicksResult1[0].main_title}}
-        </p>
-        <p class="text_23">By {{bestpicksResult1[0].author_name}}
-        </p>
-      </div>
-    </a>
+<div class="details detailsReviews">
+  <div class="crumbs">
+    <a href="./index.html">Home</a> > <a href="./reviewsPage.html">Reviews</a>
+  </div>
+  <h2 class="text_20">
+    {{details_info.title}}
+  </h2>
+  <p class="text_23">
+    <span class="start" style="display: inline_block"><span v-for="el in details_info.score">★</span><span
+        v-for="el in 5">☆</span></span><span class="text_23"> By {{details_info.author_name}} published
+      {{Math.floor((+new Date() - +new Date(details_info.release_time)) / 1000 / (60 * 60 * 24)) }} days ago</span>
+  </p>
+  <p class="text_25">
+    {{details_info.description}}
+  </p>
+  <img width="100%" class="details_img" :src="details_info.first_picture" alt="">
+  <div class="details_body">
     <div class="left">
-      <template v-for="item, index in bestpicksResult1.slice(1, 3)">
-        <a class="left_item" :href="'detailsBestpicks.html?id=' + item.id">
-          <div class="left_item_text-group_1 flex-col ">
-            <h2 class="text_21">
-              {{item.title}}
-            </h2>
-            <p class="text_22">
-              {{item.title}}
-            </p>
-            <p class="text_23">By {{item.title}}
-            </p>
+      <template v-for="item in details_info.content_list">
+        <div class="details_subtitle" v-if="item.subtitle">
+          <div>{{item.subtitle}}</div>
+        </div>
+        <div>
+          <div v-html="item.content"></div>
+          <h2 class="text_21 amazon_adv_item_des">Round up of today's best deals</h2>
+          <div class="amazon_adv amazon_adv_reviews">
+            <div class="amazon_adv_item" v-for="amazon_adv in item.amazon_adv">
+              <img src="amazon_adv.picture">
+              <p class="amazon_adv_title">{{amazon_adv.title}}</p>
+              <p class="amazon_adv_price">{{amazon_adv.actual_price}}</p>
+              <a :href="amazon_adv.link">VIEW</a>
+            </div>
           </div>
-          <img class="image_2" referrerpolicy="no-referrer" :src="item.first_picture" />
-        </a>
-        <div v-if="!index" class="left_item_hr"></div>
+        </div>
       </template>
-    </div>
-  </div>
-  <div class="bottom">
-    <a class="bottom_item" v-for="item in bestpicksResult1.slice(3, 7)" :href="'detailsBestpicks.html?id=' + item.id">
-      <img class="image_2" referrerpolicy="no-referrer" :src="item.first_picture" />
-      <div class="bottom_item_text-group_1 flex-col ">
-        <h2 class="text_21">
-          {{item.title}}
-        </h2>
-        <p class="text_23">
-          By {{item.author_name}} published {{item.release_time}}
-        </p>
-      </div>
-    </a>
-  </div>
-  <div class="content_line">
-
-  </div>
-  <div class="read_more">
-    <span>Lates best_picks</span>
-    <a href="./bestpicksPage.html?id=1-18-1"><span>VIEW MORE></span></a>
-  </div>
-  <div class="top_content best_picks">
-    <a class="right" :href="'detailsBestpicks.html?id=' + bestpicksResult2[0].id">
-      <img class="image_2" referrerpolicy="no-referrer" :src="bestpicksResult2[0].first_picture" />
-      <div class="text-group_1 flex-col ">
-        <h2 class="text_21">
-          {{bestpicksResult2[0].title}}
-        </h2>
-        <p class="text_22">
-          {{bestpicksResult2[0].main_title}}
-        </p>
-        <p class="text_23">By {{bestpicksResult2[0].author_name}}
-        </p>
-      </div>
-    </a>
-    <div class="left">
-      <template v-for="item, index in bestpicksResult2.slice(1, 3)">
-        <a class="left_item" :href="'detailsBestpicks.html?id=' + item.id">
-          <div class="left_item_text-group_1 flex-col ">
-            <h2 class="text_21">
-              {{item.title}}
-            </h2>
-            <p class="text_22">
-              {{item.main_title}}
-            </p>
-            <p class="text_23">By {{item.author_name}}
-            </p>
+      <div class="author_info">
+        <div class="author_top">
+          <div class="author_img">
+            <img :src="details_info.author_head_portrait" alt="">
           </div>
-          <img class="image_2" referrerpolicy="no-referrer" :src="item.first_picture" />
-        </a>
-        <div v-if="!index" class="left_item_hr"></div>
-      </template>
+          <div class="author_title">
+            <a :href="'author.html?id=' + details_info.author_id + '-1'" class="text_26">
+              {{details_info.author_name ||'--'}}
+              </span>
+          </div>
+        </div>
+        <div class="author_des">
+          <span class="text_22">
+            {{details_info.author_introduction}}
+          </span>
+        </div>
+        <div class="content_line"></div>
+        <div class="recommended_by_the_author">
+          <div class="recommended_by_left">
+            <div class="author_nav">MORE ABOUT ELECTRONICS</div>
+            <div class="author_article_list">
+              <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id"
+                class="author_article_list_item" v-for="item in details_info.category_recommend_list">
+                <img :src="item.first_picture" alt="">
+                <a class="text_21">{{item.title}}►</a>
+              </a>
+            </div>
+          </div>
+          <div class="recommended_by_right">
+            <div class="author_nav">
+              <span>LATEST</span>
+              <span>MORE►</span>
+            </div>
+            <div class="author_article_list">
+              <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id"
+                class="author_article_list_item" v-for="item in details_info.newest_recommend">
+                <img :src="item.first_picture" alt="">
+                <a class="text_21">{{item.title}}►</a>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="bottom">
-    <a class="bottom_item" v-for="item in bestpicksResult2.slice(3, 7)" :href="'detailsBestpicks.html?id=' + item.id">
-      <img class="image_2" referrerpolicy="no-referrer" :src="item.first_picture" />
-      <div class="bottom_item_text-group_1 flex-col ">
-        <h2 class="text_21">
-          {{item.title}}
-        </h2>
-        <p class="text_23">
-          By {{item.author_name}} published {{item.release_time}}
-        </p>
-      </div>
-    </a>
-  </div>
-  <div class="content_line">
-  </div>
-  <div class="read_more">
-    <span>Lates Reviews</span>
-    <a href="./reviewsPage.html?id=1-19-1"><span>VIEW MORE></span></a>
-  </div>
-  <div class="bottom">
-    <a class="bottom_item" v-for="item in reviewsResult" :href="'detailsReviews.html?id=' + item.id">
-      <img class="image_2" referrerpolicy="no-referrer" :src="item.first_picture" />
-      <div class="bottom_item_text-group_1 flex-col ">
-        <h2 class="text_21">
-          {{item.title}}
-        </h2>
-        <p class="start">
-          <span v-for="el in item.score">★</span><span v-for="el in 5">☆</span>
-        </p>
-        <p class="text_22">
-          {{item.main_title}}
-        </p>
-        <p class="text_23">
-          By {{item.author_name}} published {{item.release_time}}
-        </p>
-      </div>
-    </a>
-  </div>
-  <div class="content_line">
+    <div class="right">
+      <div class="post">
+        <div class="top">
+          <img src="./images/Email" alt="" height="42">
+          <div class="right_flex">
+            <p class="text_21">SIGN UP FOR E-</p>
+            <p class="text_21">MAIL NEWSLETTERS</p>
+          </div>
 
+        </div>
+        <p>
+          Get the best reviews, product advice, newsand more!
+        </p>
+        <input type="text" class="input">
+        <div>
+          <input type="checkbox" name="Contact me with news and offers from otherFuture brands">
+          <label for="Contact me with news and offers from otherFuture brands">Contact me with news and offers
+            from
+            otherFuture brands</label>
+        </div>
+        <div>
+          <input type="checkbox" name="Receive email from us on behalf of ourtrusted
+                            partners or
+                            sponsors">
+          <label for="Receive email from us on behalf of ourtrusted
+                            partners or
+                            sponsors">Receive email from us on behalf of ourtrusted
+            partners or
+            sponsors</label>
+        </div>
+        <div>
+          <button>SIGE ME UP</button>
+        </div>
+        <p>By submitting your information you agree to theTerms Conditions and Privacy Policy and areaged 16 or
+          over</p>
+      </div>
+    </div>
   </div>
 </div>

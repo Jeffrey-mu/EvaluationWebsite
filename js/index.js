@@ -273,7 +273,7 @@ window.onload = function () {
             </p>
             <div class="included">
               <template v-for="item, index in details_info.content_list">
-               <a :href="'#' + amazon_adv.id" class="included_item" v-for="amazon_adv, count in item.amazon_adv" @click="active = index + count">
+               <a :style="{borderBottom: index + count == active ? '4px solid red': '' }" :href="'#' + amazon_adv.id" class="included_item" v-for="amazon_adv, count in item.amazon_adv" @click="active = index + count">
                 <!--序号1显示红色-->
                 <div class="tag" :style="{backgroundColor: index + count == active ? 'red' : '', color: index + count == active ? '#fff' : ''}">
                 <!--内外下标相加得到序号-->
@@ -285,8 +285,8 @@ window.onload = function () {
                 <h2 class="text_22">{{amazon_adv.title}}</h2>
                 <!--<p>Hiland&nbsp;HLDSO…</p>-->
                 <a :href="amazon_adv.link"><button>CHECK PRICE</button></a>
-              </template>
-            </a>
+              </a>
+             </template>
             </div>
             <div class="content_line"></div>
             <h2 class="text_21">
@@ -295,7 +295,11 @@ window.onload = function () {
             <img width="100%" class="details_img"
               :src="details_info.first_picture"
               alt="">
-            <div style="margin-top: 20px" v-for="item in details_info.content_list" :id="item.amazon_adv[0] ? item.amazon_adv[0].id : ''">
+           <template v-for="item in details_info.content_list">
+            <div class="details_subtitle" v-if="item.subtitle">
+              <div>{{item.subtitle}}</div>
+            </div>
+            <div style="margin-top: 20px"  :id="item.amazon_adv[0] ? item.amazon_adv[0].id : ''">
               <div v-html="item.content"></div>
               <!--<div class="amazon_adv">
                 <div class="amazon_adv_item" v-for="amazon_adv in item.amazon_adv">
@@ -306,6 +310,7 @@ window.onload = function () {
                 </div>
               </div>-->
             </div>
+           </template>
             <div class="author_info">
               <div class="author_top">
                 <div class="author_img">
@@ -314,9 +319,9 @@ window.onload = function () {
                     alt="">
                 </div>
                 <div class="author_title">
-                  <span class="text_26">
+                  <a :href="'author.html?id=' + details_info.author_id + '-1'" class="text_26">
                     {{details_info.author_name ||'--'}}
-                  </span>
+                  </a>
                 </div>
               </div>
               <div class="author_des">
@@ -414,7 +419,9 @@ window.onload = function () {
     {{details_info.title}}
   </h2>
   <p class="text_23">
-    <span class="start" style="display: inline_block"><span v-for="el in details_info.score">★</span><span v-for="el in 5">☆</span></span><span class="text_23"> By {{details_info.author_name}} published {{Math.floor((+new Date() - +new Date(details_info.release_time)) / 1000 / (60 * 60 * 24)) }} days ago</span>
+    <span class="start" style="display: inline_block"><span v-for="el in details_info.score">★</span><span
+        v-for="el in 5">☆</span></span><span class="text_23"> By {{details_info.author_name}} published
+      {{Math.floor((+new Date() - +new Date(details_info.release_time)) / 1000 / (60 * 60 * 24)) }} days ago</span>
   </p>
   <p class="text_25">
     {{details_info.description}}
@@ -422,18 +429,23 @@ window.onload = function () {
   <img width="100%" class="details_img" :src="details_info.first_picture" alt="">
   <div class="details_body">
     <div class="left">
-      <div v-for="item in details_info.content_list">
-        <div v-html="item.content"></div>
-        <h2 class="text_21 amazon_adv_item_des">Round up of today's best deals</h2>
-        <div class="amazon_adv amazon_adv_reviews">
-          <div class="amazon_adv_item" v-for="amazon_adv in item.amazon_adv">
-            <img src="amazon_adv.picture">
-            <p class="amazon_adv_title">{{amazon_adv.title}}</p>
-            <p class="amazon_adv_price">{{amazon_adv.actual_price}}</p>
-            <a :href="amazon_adv.link">VIEW</a>
+      <template v-for="item in details_info.content_list">
+        <div class="details_subtitle" v-if="item.subtitle">
+          <div>{{item.subtitle}}</div>
+        </div>
+        <div>
+          <div v-html="item.content"></div>
+          <h2 class="text_21 amazon_adv_item_des">Round up of today's best deals</h2>
+          <div class="amazon_adv amazon_adv_reviews">
+            <div class="amazon_adv_item" v-for="amazon_adv in item.amazon_adv">
+              <img src="amazon_adv.picture">
+              <p class="amazon_adv_title">{{amazon_adv.title}}</p>
+              <p class="amazon_adv_price">{{amazon_adv.actual_price}}</p>
+              <a :href="amazon_adv.link">VIEW</a>
+            </div>
           </div>
         </div>
-      </div>
+      </template>
       <div class="author_info">
         <div class="author_top">
           <div class="author_img">
@@ -442,7 +454,7 @@ window.onload = function () {
           <div class="author_title">
             <a :href="'author.html?id=' + details_info.author_id + '-1'" class="text_26">
               {{details_info.author_name ||'--'}}
-            </span>
+            </a>
           </div>
         </div>
         <div class="author_des">
@@ -455,7 +467,8 @@ window.onload = function () {
           <div class="recommended_by_left">
             <div class="author_nav">MORE ABOUT ELECTRONICS</div>
             <div class="author_article_list">
-              <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id" class="author_article_list_item" v-for="item in details_info.category_recommend_list">
+              <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id"
+                class="author_article_list_item" v-for="item in details_info.category_recommend_list">
                 <img :src="item.first_picture" alt="">
                 <a class="text_21">{{item.title}}►</a>
               </a>
@@ -467,7 +480,8 @@ window.onload = function () {
               <span>MORE►</span>
             </div>
             <div class="author_article_list">
-              <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id" class="author_article_list_item" v-for="item in details_info.newest_recommend">
+              <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id"
+                class="author_article_list_item" v-for="item in details_info.newest_recommend">
                 <img :src="item.first_picture" alt="">
                 <a class="text_21">{{item.title}}►</a>
               </a>
