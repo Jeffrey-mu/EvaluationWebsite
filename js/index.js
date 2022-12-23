@@ -883,7 +883,7 @@ window.onload = function () {
             </div>
             <div class="article_list">
 
-              <a href="" class="article_item" v-for="item in authorResult.article_list">
+              <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id" class="article_item" v-for="item in authorResult.article_list">
                 <img class="image_2" referrerpolicy="no-referrer"
                   src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng1685cb9eaca48133c14c4040ff7b5d426f2d1b0ebdc1a862b8d32933a027cbda" />
                 <div class="article_item_text-group_1">
