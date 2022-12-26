@@ -257,7 +257,7 @@ window.onload = function () {
         <div class="details_body">
           <div class="left">
             <div class="crumbs">
-              <a href="./index.html">Home</a> > <a href="./bestpicksPage.html">Best.picks</a>
+              <a href="./index.html">Home</a> > <a href="./bestpicksPage.html?id=1-18-1">Best.picks</a>
             </div>
             <h2 class="text_20">
             {{details_info.title}}
@@ -413,7 +413,7 @@ window.onload = function () {
     },
     template: `<div class="details detailsReviews">
   <div class="crumbs">
-    <a href="./index.html">Home</a> > <a href="./reviewsPage.html">Reviews</a>
+    <a href="./index.html">Home</a> > <a href="./reviewsPage.html?id=1-19-1">Reviews</a>
   </div>
   <h2 class="text_20">
     {{details_info.title}}
@@ -885,10 +885,10 @@ window.onload = function () {
 
               <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id" class="article_item" v-for="item in authorResult.article_list">
                 <img class="image_2" referrerpolicy="no-referrer"
-                  src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng1685cb9eaca48133c14c4040ff7b5d426f2d1b0ebdc1a862b8d32933a027cbda" />
+                  :src="item.first_picture" />
                 <div class="article_item_text-group_1">
                   <div class="text_21">
-                    Best cheap leaf blower deals Best cheap leaf blower deals 2022
+                     {{item.title}}
                   </div>
                   <div class="text_23">
                     {{authorResult.author_name}} published {{item.release_time}}

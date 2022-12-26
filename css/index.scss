@@ -13,6 +13,21 @@
 
 }
 
+@mixin text_hover {
+  &:hover {
+    color: #3B78F0;
+  }
+}
+
+img {
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
+}
+
 .text_20 {
   overflow-wrap: break-word;
   color: rgb(51, 51, 51);
@@ -21,6 +36,7 @@
   text-align: left;
   line-height: 42px;
   margin-bottom: 8px;
+  @include text_hover;
 }
 
 // 一级标题文字样式
@@ -33,6 +49,7 @@
   white-space: wrap;
   line-height: 26px;
   margin-bottom: 8px;
+  @include text_hover;
 }
 
 
@@ -45,6 +62,7 @@
   text-align: left;
   line-height: 22px;
   margin-bottom: 8px;
+  @include text_hover;
 }
 
 // 日期样式
@@ -57,6 +75,7 @@
   white-space: wrap;
   line-height: 15px;
   margin-bottom: 8px;
+  @include text_hover;
 }
 
 // 二级标题文字样式
@@ -68,6 +87,7 @@
   text-align: left;
   line-height: 26px;
   margin-bottom: 8px;
+  @include text_hover;
 }
 
 .text_25 {
@@ -78,6 +98,7 @@
   text-align: left;
   line-height: 28px;
   margin-bottom: 8px;
+  @include text_hover;
 }
 
 .text_26 {
@@ -248,6 +269,10 @@
 
           a {
             color: white;
+
+            &:hover {
+              color: #f8ff83;
+            }
           }
         }
       }
