@@ -32,8 +32,22 @@ img {
   transition: 0.3s;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     transition: 0.3s;
+  }
+}
+
+.website_top_text {
+  margin-top: 20px;
+  overflow-wrap: break-word;
+  color: rgba(51, 51, 51, 1);
+  font-size: 12px;
+  font-family: Verdana;
+  text-align: left;
+  line-height: 24px;
+
+  @media screen and (max-width: 900px) {
+    padding: 0 20px;
   }
 }
 
@@ -344,6 +358,15 @@ img {
     .details {
       padding: 10px 0;
 
+      .share {
+        margin: 10px;
+
+        img {
+          width: 25px;
+          height: 25px;
+        }
+      }
+
       .details_subtitle {
         border-bottom: 3px solid #E71D1D;
         margin: 10px 0;
@@ -361,7 +384,7 @@ img {
       }
 
       .details_img {
-        margin-top: 20px;
+        margin-top: 0px;
       }
 
       .crumbs {
@@ -417,7 +440,13 @@ img {
               }
 
               h2 {
-                height: 60px;
+                margin-top: 25px;
+              }
+
+              h2,
+              p {
+
+                height: 25px;
                 text-align: center;
               }
 
@@ -633,9 +662,11 @@ img {
               .right_flex {
                 display: flex;
                 flex-direction: column;
+                width: 100%;
 
                 .text_21 {
                   margin: 0;
+                  width: calc(100% - 45px);
                 }
               }
             }
@@ -868,7 +899,7 @@ img {
     // 底部锚点内容
     .text_content {
       padding: 20px;
-      min-height: 40vh;
+      min-height: 60vh;
     }
 
     .author {
