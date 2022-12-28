@@ -70,7 +70,7 @@ window.onload = function () {
     },
     template: `<div class="header">
       <div class="phone_menu icon iconfont" @click="handleShowMenu">
-        &#xe624;
+       &#xe790;
       </div>
       <a href="./index.html" class="text-wrapper_1" :style="{display: showSearch ? 'none' : 'block'}" v-if="!showSearch">
         <span class="text_1">Evaluation</span>
@@ -97,20 +97,20 @@ window.onload = function () {
           src="../images/Email" />
         <div class="search_box_icon" v-if="!showSearch">
           <a href="./search.html" class="icon iconfont" style="line-height: 30px;margin: 0 10px;font-size: 23px">
-          &#xe8d6;
+          &#xe600;
           </a>
           <a href="./search.html"  style="color:#ccc">Search</a>
 
         </div>
         <div class="search_box_pc" v-if="showSearch">
           <div class="icon iconfont" style="line-height: 30px;margin: 0 10px;">
-          &#xe8d6;
+          &#xe600;
           </div>
           <input type="text" v-model="searchKeys" class="search_box_input">
         </div>
       </div>
       <a href="./search.html" class="phone_search icon iconfont">
-        &#xe8d6;
+        &#xe600;
       </a>
     </div>`
   })
@@ -131,8 +131,9 @@ window.onload = function () {
       <div class="menu_content">
         <div class="block_1 flex-row">
           <a href="/" class="block_1_item flex-col" style="margin: 14px 0;">
-            <img class="image_1" referrerpolicy="no-referrer"
-              src="../images/pcHome" />
+            <div class="icon iconfont" style="color:#fff; font-size: 23px" >
+              &#xe750;
+            </div>
           </a>
           <div class="block_1_item flex-col" v-for="item in menu">
             <a :href="item.id == '18' ? './bestpicksPage.html?id=' + item.type + '-' + item.id + '-' + 1 :
@@ -163,9 +164,11 @@ window.onload = function () {
     <div class="menu_phone">
     <div class="menu_phone_content" @click="handleEmpy">
       <div class="box_1">
-        <a href="/"><div class="block_1">
-        <img src="../images/home">
-        </div></a>
+        <a href="/">
+        <div class="block_1 icon iconfont" style="font-size: 23px">
+              &#xe750;
+        </div>
+        </a>
       </div>
       <div class="box_2">
         <div class="menu_item" v-for="item in menu">
@@ -297,6 +300,10 @@ window.onload = function () {
                 <div class="tag" :style="{backgroundColor: index  == active ? 'red' : '', color: index  == active ? '#fff' : ''}">
                 <!--内外下标相加得到序号-->
                   {{index + 1}}
+                </div>
+                 <div class="arrow icon iconfont">
+                <!--内外下标相加得到序号-->
+                  &#xe61f;
                 </div>
                 <img
                   :src="item.picture"

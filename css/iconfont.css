@@ -1,6 +1,8 @@
 @font-face {
-  font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1669624170062') format('truetype');
+  font-family: "iconfont"; /* Project id 3842883 */
+  src: url('iconfont.woff2?t=1672212727315') format('woff2'),
+       url('iconfont.woff?t=1672212727315') format('woff'),
+       url('iconfont.ttf?t=1672212727315') format('truetype');
 }
 
 .iconfont {
@@ -11,11 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-sousuoxiao:before {
-  content: "\e8d6";
+.icon-31sousuo:before {
+  content: "\e600";
+}
+
+.icon-shouyefill:before {
+  content: "\e750";
 }
 
 .icon-caidan:before {
-  content: "\e624";
+  content: "\e790";
+}
+
+.icon-xiangxiajiantou:before {
+  content: "\e61f";
 }
 

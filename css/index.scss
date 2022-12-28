@@ -238,7 +238,7 @@ img {
       .phone_menu,
       .phone_search {
         display: block;
-        font-size: 20px;
+        font-size: 30px;
       }
 
       .text-wrapper_1 {
@@ -329,6 +329,7 @@ img {
       .block_1 {
         width: 28px;
         height: 26px;
+        color: $main_color;
         background-size: 100% 100%;
       }
 
@@ -424,6 +425,19 @@ img {
               position: relative;
               background-color: #F7F7F7;
               text-align: center;
+
+              .arrow {
+                position: absolute;
+                border-radius: 50%;
+                background-color: #fff;
+                width: 40px;
+                line-height: 40px;
+                text-align: center;
+                color: #111;
+                font-weight: 600;
+                right: 10px;
+                top: -10px;
+              }
 
               .tag {
                 box-shadow: 1px 1px 1px 1px #e3e3e3;
