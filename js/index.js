@@ -48,7 +48,7 @@ window.onload = function () {
                   <div class="text_23">
                     By ${item.author_name} published ${Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24))} days ago
                   </div>
-                  <div class="start">
+                  <div class="start" style="display: ${item.type == 2 ? '' : 'none'}">
                   ${(() => { let newArray = new Array(Number(Math.ceil(item.score))).fill('★'); return newArray.join('') })()}<spa>☆☆☆☆☆☆</span>
                   </div>
                   <div class="text_22">
@@ -130,9 +130,9 @@ window.onload = function () {
     <div class="menu">
       <div class="menu_content">
         <div class="block_1 flex-row">
-          <a href="./index.html" class="block_1_item flex-col" style="margin: 10px 0;">
+          <a href="./index.html" class="block_1_item flex-col" style="margin: 14px 0;">
             <img class="image_1" referrerpolicy="no-referrer"
-              src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng7b398184f7d7262418e957642707a8fc1465d7daf90cf3aa4a10de694a2610a0" />
+              src="../images/pcHome" />
           </a>
           <div class="block_1_item flex-col" v-for="item in menu">
             <a :href="item.id == '18' ? './bestpicksPage.html?id=' + item.type + '-' + item.id + '-' + 1 :
@@ -163,7 +163,9 @@ window.onload = function () {
     <div class="menu_phone">
     <div class="menu_phone_content" @click="handleEmpy">
       <div class="box_1">
-        <a href="/"><div class="block_1"></div></a>
+        <a href="/"><div class="block_1">
+        <img src="../images/home">
+        </div></a>
       </div>
       <div class="box_2">
         <div class="menu_item" v-for="item in menu">
@@ -335,7 +337,7 @@ window.onload = function () {
                   <div class="author_nav">MORE ABOUT ELECTRONICS</div>
                   <div class="author_article_list">
                     <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id" class="author_article_list_item" v-for="item in details_info.category_recommend_list">
-                      <img
+                      <img style="display: block;"
                         :src="item.first_picture"
                         alt="">
                       <a class="text_21">{{item.title}}►</a>
@@ -482,7 +484,7 @@ window.onload = function () {
             <div class="author_article_list">
               <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id"
                 class="author_article_list_item" v-for="item in details_info.newest_recommend">
-                <img :src="item.first_picture" alt="">
+                <img :src="item.first_picture" alt="" style="display: block;">
                 <a class="text_21">{{item.title}}►</a>
               </a>
             </div>
@@ -567,7 +569,6 @@ window.onload = function () {
                 :src="channelResult[0].first_picture" />
               <div class="text-group_1 flex-col">
                 <h2 class=" text_21">
-
                   {{channelResult[0].title}}
                 </h2>
                 <p class="text_22">
@@ -581,7 +582,7 @@ window.onload = function () {
                   :src="item.first_picture" />
                 <div class="right_item_text-group_1 flex-col">
                   <h2 class=" text_24">
-                    {{item.title}}
+                    {{item.title.length > 28 ? item.title.slice(0, 24) + '...' : item.title}}
                   </h2>
                   <p class="text_23">
                      By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
@@ -596,6 +597,7 @@ window.onload = function () {
               <span class="text_22">
                 Latest -Reviews
               </span>
+              <span class="bottom_border"></span>
             </div>
             <div class="article_list">
               <a :href="'./detailsReviews.html?id=' + item.id" class="article_item" v-for="item in channelResult.slice(4)">
@@ -679,7 +681,7 @@ window.onload = function () {
                   :src="item.first_picture" />
                 <div class="right_item_text-group_1 flex-col ">
                   <h2 class="text_24">
-                    {{item.title}}
+                   {{item.title.length > 28 ? item.title.slice(0, 24) + '...' : item.title}}
                   </h2>
                   <p class="text_23">
                      By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
@@ -694,6 +696,7 @@ window.onload = function () {
               <span class="text_22">
                 Latest Best-Picks
               </span>
+              <span class="bottom_border"></span>
             </div>
             <div class="article_list">
              <a :href="'./detailsBestpicks.html?id=' + item.id" class="article_item" v-for="item in channelResult.slice(4)">
@@ -733,13 +736,15 @@ window.onload = function () {
       channelResult: [],
       total: 0,
       id: 1,
-      page: 0
+      page: 0,
+      menu: []
     },
     methods: {
       async getData() {
         let id = window.location.search.split('=')[1];
         // 获取查询参数
         let { res, total } = await getJson('../api/channel/channel-' + id + '.json');
+        this.menu = await getJson('../api/channel/menu.json');
         this.channelResult = res;
         this.total = Math.ceil(total / 10);
         this.id = id.slice(0, -1)
@@ -755,6 +760,7 @@ window.onload = function () {
     },
     template: `<div class="typePage channelPage">
   <div class="left">
+    <h2 style="margin-top: 20px; font-size: 28px;">{{menu.find(el => el.id == id.split('-')[1]).name}}</h2>
     <div class="typePage_top_content">
       <a :href="channelResult[0].type == 1 ? './detailsBestpicks.html?id=' + channelResult[0].id : './detailsReviews.html?id=' + channelResult[0].id"
         class="left">
@@ -789,6 +795,7 @@ window.onload = function () {
         <span class="text_22">
           Latest Articles
         </span>
+        <span class="bottom_border"></span>
       </div>
       <div class="article_list">
         <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id"
@@ -880,6 +887,7 @@ window.onload = function () {
               <span class="text_22">
                 ARTICLES BY: {{authorResult.author_name}}
               </span>
+              <span class="bottom_border"></span>
             </div>
             <div class="article_list">
 
@@ -893,7 +901,7 @@ window.onload = function () {
                   <div class="text_23">
                     {{authorResult.author_name}} published {{item.release_time}}
                   </div>
-                  <div class="start">
+                  <div class="start" v-if="item.type == 2">
                     <span v-for="el in item.score">★</span><span v-for="el in 5">☆</span>
                   </div>
                   <div class="text_22">
@@ -922,9 +930,7 @@ window.onload = function () {
   renderElement(INDEX_CONTENT, {
     el: INDEX_CONTENT,
     data: {
-      reviewsResult: [],
-      bestpicksResult1: [],
-      bestpicksResult2: [],
+      indexResult: []
 
     },
     methods: {
@@ -935,32 +941,31 @@ window.onload = function () {
     },
     methods: {
       async getData() {
-        let bestpicksResult1 = await getJson('../api/channel/channel-1-18-1.json')
-        let bestpicksResult2 = await getJson('../api/channel/channel-1-18-1.json')
-        let reviewsResult = await getJson('../api/channel/channel-1-19-1.json')
-        this.bestpicksResult1 = bestpicksResult1.res;
-        this.bestpicksResult2 = bestpicksResult2.res;
-        this.reviewsResult = reviewsResult.res;
+        this.indexResult = await getJson('../api/channel/index.json')
       },
     },
     template: `<div class="index_content">
   <div class="top_content">
-    <a class="right" :href="'detailsBestpicks.html?id=' + bestpicksResult1[0].id">
-      <img class="image_2" referrerpolicy="no-referrer" :src="bestpicksResult1[0].first_picture" />
+    <div class="read_more index_title">
+      <span>Latest</span>
+      <span class="bottom_border"></span>
+    </div>
+    <a class="right" :href="indexResult.newest_list[0].type == 1 ? './detailsBestpicks.html?id=' + indexResult.newest_list[0].id : './detailsReviews.html?id=' + indexResult.newest_list[0].id">
+      <img class="image_2" referrerpolicy="no-referrer" :src="indexResult.newest_list[0].first_picture" />
       <div class="text-group_1 flex-col ">
         <h2 class="text_21">
-          {{bestpicksResult1[0].title}}
+          {{indexResult.newest_list[0].title}}
         </h2>
         <p class="text_22">
-          {{bestpicksResult1[0].main_title}}
+          {{indexResult.newest_list[0].main_title}}
         </p>
-        <p class="text_23">By {{bestpicksResult1[0].author_name}}
+        <p class="text_23">By {{indexResult.newest_list[0].author_name}}
         </p>
       </div>
     </a>
     <div class="left">
-      <template v-for="item, index in bestpicksResult1.slice(1, 3)">
-        <a class="left_item" :href="'detailsBestpicks.html?id=' + item.id">
+      <template v-for="item, index in indexResult.newest_list.slice(1, 3)">
+        <a class="left_item" :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id">
           <div class="left_item_text-group_1 flex-col ">
             <h2 class="text_21">
               {{item.title}}
@@ -978,11 +983,11 @@ window.onload = function () {
     </div>
   </div>
   <div class="bottom">
-    <a class="bottom_item" v-for="item in bestpicksResult1.slice(3, 7)" :href="'detailsBestpicks.html?id=' + item.id">
+    <a class="bottom_item" v-for="item in indexResult.newest_list.slice(3, 7)" :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id">
       <img class="image_2" referrerpolicy="no-referrer" :src="item.first_picture" />
       <div class="bottom_item_text-group_1 flex-col ">
         <h2 class="text_21">
-          {{item.title}}
+          {{item.title.length > 28 ? item.title.slice(0, 24) + '...' : item.title}}
         </h2>
         <p class="text_23">
           By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
@@ -995,24 +1000,25 @@ window.onload = function () {
   </div>
   <div class="read_more">
     <span>Lates best_picks</span>
-    <a href="./bestpicksPage.html?id=1-18-1"><span>VIEW MORE></span></a>
+    <span class="bottom_border"></span>
+    <a href="./bestpicksPage.html?id=1-18-1"><span>VIEW MORE▶</span></a>
   </div>
   <div class="top_content best_picks">
-    <a class="right" :href="'detailsBestpicks.html?id=' + bestpicksResult2[0].id">
-      <img class="image_2" referrerpolicy="no-referrer" :src="bestpicksResult2[0].first_picture" />
+    <a class="right" :href="'detailsBestpicks.html?id=' + indexResult.newest_best_picks_list[0].id">
+      <img class="image_2" referrerpolicy="no-referrer" :src="indexResult.newest_best_picks_list[0].first_picture" />
       <div class="text-group_1 flex-col ">
         <h2 class="text_21">
-          {{bestpicksResult2[0].title}}
+          {{indexResult.newest_best_picks_list[0].title}}
         </h2>
         <p class="text_22">
-          {{bestpicksResult2[0].main_title}}
+          {{indexResult.newest_best_picks_list[0].main_title}}
         </p>
-        <p class="text_23">By {{bestpicksResult2[0].author_name}}
+        <p class="text_23">By {{indexResult.newest_best_picks_list[0].author_name}}
         </p>
       </div>
     </a>
     <div class="left">
-      <template v-for="item, index in bestpicksResult2.slice(1, 3)">
+      <template v-for="item, index in indexResult.newest_best_picks_list.slice(1, 4)">
         <a class="left_item" :href="'detailsBestpicks.html?id=' + item.id">
           <div class="left_item_text-group_1 flex-col ">
             <h2 class="text_21">
@@ -1026,17 +1032,20 @@ window.onload = function () {
           </div>
           <img class="image_2" referrerpolicy="no-referrer" :src="item.first_picture" />
         </a>
-        <div v-if="!index" class="left_item_hr"></div>
+        <div v-if="index != 2" style="margin: 10px 0"></div>
       </template>
     </div>
   </div>
-  <div class="bottom">
-    <a class="bottom_item" v-for="item in bestpicksResult2.slice(3, 7)" :href="'detailsBestpicks.html?id=' + item.id">
+  <div class="bottom best_picks_bottom">
+    <a class="bottom_item" v-for="item in indexResult.newest_best_picks_list.slice(1, 4)" :href="'detailsBestpicks.html?id=' + item.id">
       <img class="image_2" referrerpolicy="no-referrer" :src="item.first_picture" />
       <div class="bottom_item_text-group_1 flex-col ">
         <h2 class="text_21">
           {{item.title}}
         </h2>
+        <p  class="text_22">
+        {{item.main_title}}
+        </p>
         <p class="text_23">
            By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
         </p>
@@ -1047,10 +1056,11 @@ window.onload = function () {
   </div>
   <div class="read_more">
     <span>Lates Reviews</span>
-    <a href="./reviewsPage.html?id=1-19-1"><span>VIEW MORE></span></a>
+    <span class="bottom_border"></span>
+    <a href="./reviewsPage.html?id=1-19-1"><span>VIEW MORE▶</span></a>
   </div>
-  <div class="bottom">
-    <a class="bottom_item" v-for="item in reviewsResult.slice(0, 4)" :href="'detailsReviews.html?id=' + item.id">
+  <div class="bottom reviews_bottom">
+    <a class="bottom_item" v-for="item in indexResult.newest_reviews_list.slice(0, 4)" :href="'detailsReviews.html?id=' + item.id">
       <img class="image_2" referrerpolicy="no-referrer" :src="item.first_picture" />
       <div class="bottom_item_text-group_1 flex-col ">
         <h2 class="text_21">

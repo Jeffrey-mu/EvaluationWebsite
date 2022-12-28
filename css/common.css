@@ -73,3 +73,47 @@ a{text-decoration:none;color:#000;}
 img {
   cursor: pointer;
 }
+.loading-container{
+  padding: 0;
+  text-align: center;
+  height: 50vh;
+  width: 100%;
+  background:#eee;
+}
+.loading{
+  margin-top: 25vh;
+  animation: bounce 1.5s infinite linear;
+  background: #FFF;
+  border-radius: 50%;
+  display: inline-block;
+  height: 20px;
+  text-align: center;
+  width: 20px;
+}
+
+.loading:nth-child(1){
+  animation-delay: .2s;
+}
+.loading:nth-child(2){
+  animation-delay: .4s;
+}
+.loading:nth-child(3){
+  animation-delay: .6s;
+}
+.loading:nth-child(4){
+  animation-delay: .8s;
+}
+.loading:nth-child(5){
+  animation-delay: 1s;
+}
+@keyframes bounce {
+    0% {
+			transform: translateY(0);
+    }
+  	15% {
+        transform: translateY(-15px);
+    }
+    30% {
+        transform: translateY(0);
+    }
+}

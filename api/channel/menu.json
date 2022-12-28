@@ -1,1 +1,32 @@
-[{"id":18,"name":"Best-picks","type":"1"},{"id":19,"name":"Review","type":"1"},{"id":20,"name":"Home & Garden","type":"2"},{"id":21,"name":"Money","type":"2"},{"id":22,"name":"Tech","type":"2"},{"id":23,"name":"Health","type":"2"}]
+[
+  {
+    "id": 18,
+    "name": "Best-picks",
+    "type": "1"
+  },
+  {
+    "id": 19,
+    "name": "Review",
+    "type": "1"
+  },
+  {
+    "id": 20,
+    "name": "Home & Garden",
+    "type": "2"
+  },
+  {
+    "id": 21,
+    "name": "Money",
+    "type": "2"
+  },
+  {
+    "id": 22,
+    "name": "Tech",
+    "type": "2"
+  },
+  {
+    "id": 23,
+    "name": "Health",
+    "type": "2"
+  }
+]

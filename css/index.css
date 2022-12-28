@@ -88,7 +88,7 @@ img:hover {
 
 .text_26 {
   overflow-wrap: break-word;
-  color: rgb(56, 116, 244);
+  color: #3B78F0;
   font-size: 20px;
   font-family: Arial-BoldMT;
   text-align: left;
@@ -169,7 +169,7 @@ img:hover {
   width: 298px;
   line-height: 70px;
   overflow-wrap: break-word;
-  color: rgb(60, 120, 240);
+  color: #3B78F0;
   font-size: 36px;
   font-family: ArialMT;
   text-align: left;
@@ -264,13 +264,11 @@ img:hover {
 .app .menu_phone .menu_phone_content .block_1 {
   width: 28px;
   height: 26px;
-  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng4fb803168a5c245242dace570740d4dfef5e64d237f4bc56c2e7a6eebda34917) 100% no-repeat;
   background-size: 100% 100%;
 }
 .app .menu_phone .menu_phone_content .menu_item {
-  background-color: rgb(60, 120, 240);
   padding: 16px 235px 16px 24px;
-  background-color: rgb(60, 120, 240);
+  background-color: #3B78F0;
   margin-top: 1px;
   overflow-wrap: break-word;
   font-size: 18px;
@@ -365,7 +363,7 @@ img:hover {
   width: 100%;
 }
 .app .content .details .details_body .left .included .included_item button {
-  background-color: rgb(56, 116, 244);
+  background-color: #3B78F0;
   height: 35px;
   width: 100%;
   margin-top: 11px;
@@ -490,12 +488,18 @@ img:hover {
     margin: 0;
   }
   .app .content .details .details_body .left .recommended_by_the_author .author_article_list .author_article_list_item img {
+    display: none;
+  }
+  .app .content .details .details_body .left .recommended_by_the_author .author_article_list .author_article_list_item:nth-child(1) img {
+    display: block;
+  }
+  .app .content .details .details_body .left .recommended_by_the_author .author_article_list .author_article_list_item img {
     margin-right: 0px;
   }
 }
 .app .content .details .details_body .right {
   width: 25%;
-  background: #ccc;
+  background: #eee;
 }
 @media screen and (max-width: 900px) {
   .app .content .details .details_body .right {
@@ -528,7 +532,7 @@ img:hover {
   margin: 10px 0;
 }
 .app .content .details .details_body .right .post button {
-  background-color: rgb(56, 116, 244);
+  background-color: #3B78F0;
   height: 35px;
   width: 100%;
   margin: 11px 0;
@@ -631,6 +635,14 @@ img:hover {
   padding-bottom: 30px;
   border-bottom: 1px solid #ccc;
 }
+@media screen and (max-width: 900px) {
+  .app .content .typePage .left .article_block .article_list .article_item img {
+    display: none;
+  }
+  .app .content .typePage .left .article_block .article_list .article_item:nth-child(1) img {
+    display: block;
+  }
+}
 .app .content .typePage .left .article_block .article_list .article_item .image_2 {
   width: 40%;
 }
@@ -657,6 +669,7 @@ img:hover {
   }
 }
 .app .content .typePage .left .article_block .article_limit_page {
+  overflow: auto;
   display: flex;
   justify-content: center;
   padding: 20px;
@@ -665,7 +678,7 @@ img:hover {
 .app .content .typePage .left .article_block .article_limit_page a,
 .app .content .typePage .left .article_block .article_limit_page span {
   overflow-wrap: break-word;
-  color: rgb(56, 116, 244);
+  color: #3B78F0;
   font-size: 16px;
   font-family: SourceHanSansCN-Regular;
   text-align: left;
@@ -684,6 +697,15 @@ img:hover {
 @media screen and (max-width: 900px) {
   .app .content .typePage .right {
     display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  .app .content .bottom_border {
+    display: block;
+    width: 70px;
+    margin: 20px 0;
+    border: 2px solid #111;
+    border-radius: 10px;
   }
 }
 .app .content .text_content {
@@ -720,6 +742,14 @@ img:hover {
   padding-bottom: 30px;
   border-bottom: 1px solid #ccc;
 }
+@media screen and (max-width: 900px) {
+  .app .content .author .left .article_block .article_list .article_item img {
+    display: none;
+  }
+  .app .content .author .left .article_block .article_list .article_item:nth-child(1) img {
+    display: block;
+  }
+}
 .app .content .author .left .article_block .article_list .article_item .image_2 {
   width: 40%;
 }
@@ -750,11 +780,12 @@ img:hover {
   justify-content: center;
   padding: 20px;
   color: #3B78F0;
+  overflow: auto;
 }
 .app .content .author .left .article_block .article_limit_page a,
 .app .content .author .left .article_block .article_limit_page span {
   overflow-wrap: break-word;
-  color: rgb(56, 116, 244);
+  color: #3B78F0;
   font-size: 16px;
   font-family: SourceHanSansCN-Regular;
   text-align: left;
@@ -816,7 +847,7 @@ img:hover {
 }
 .app .content .top_recommendation .active {
   overflow-wrap: break-word;
-  color: rgb(60, 120, 240);
+  color: #3B78F0;
 }
 .app .content .top_recommendation a {
   font-family: Arial-BoldMT;
@@ -887,6 +918,7 @@ img:hover {
 .app .content .bottom .bottom_item .image_2 {
   width: 100%;
   margin: 10px 0;
+  aspect-ratio: 16/9;
 }
 @media screen and (max-width: 900px) {
   .app .content .bottom {
@@ -894,28 +926,80 @@ img:hover {
     padding: 0 20px;
   }
   .app .content .bottom .bottom_item {
+    flex-direction: row;
     width: 100%;
     margin-bottom: 30px;
     padding-bottom: 30px;
     border-bottom: 1px solid #444;
   }
   .app .content .bottom .bottom_item .image_2 {
+    width: 40%;
     margin: 0;
   }
   .app .content .bottom .bottom_item .bottom_item_text-group_1 {
+    width: 60%;
     justify-content: start;
-    padding: 20px 0;
+    padding-left: 20px;
+  }
+}
+.app .content .best_picks_bottom {
+  display: none;
+}
+@media screen and (max-width: 900px) {
+  .app .content .best_picks_bottom {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .app .content .best_picks_bottom .bottom_item {
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444;
+  }
+  .app .content .best_picks_bottom .bottom_item .image_2 {
+    display: none;
+  }
+  .app .content .best_picks_bottom .bottom_item .bottom_item_text-group_1 {
+    width: 100%;
+    justify-content: start;
+    padding-left: 0px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .app .content .reviews_bottom {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .app .content .reviews_bottom .bottom_item {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444;
+  }
+  .app .content .reviews_bottom .bottom_item:nth-child(1) .image_2 {
+    width: 100%;
+    display: block;
+  }
+  .app .content .reviews_bottom .bottom_item .image_2 {
+    display: none;
+  }
+  .app .content .reviews_bottom .bottom_item .bottom_item_text-group_1 {
+    width: 100%;
+    justify-content: start;
+    padding-left: 0px;
   }
 }
 .app .content .content_line {
   background-color: rgb(51, 51, 51);
-  height: 4px;
-  margin: 40px 0;
+  height: 5px;
+  margin: 40px 0px;
 }
 .app .content .read_more {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
 }
 .app .content .read_more span {
   overflow-wrap: break-word;
@@ -925,24 +1009,36 @@ img:hover {
   text-align: left;
   white-space: nowrap;
   line-height: 28px;
+  font-weight: 600;
 }
 .app .content .read_more a span:nth-child(1) {
-  color: rgb(60, 120, 240);
+  color: #3B78F0;
 }
 @media screen and (max-width: 900px) {
   .app .content .read_more {
     flex-direction: column;
+    padding: 0 20px;
+  }
+  .app .content .read_more a span {
+    font-size: 24px;
+  }
+  .app .content .read_more .bottom_border {
+    width: 70px;
+    margin: 20px 0;
+    border: 2px solid #111;
+    border-radius: 10px;
   }
   .app .content .read_more span {
-    font-size: 20px;
+    font-size: 30px;
     font-family: Arial-BoldMT;
     text-align: left;
     white-space: nowrap;
     line-height: 35px;
+    font-weight: 600;
   }
   .app .content .read_more span:nth-child(2) {
     font-size: 16px;
-    color: rgb(60, 120, 240);
+    color: #3B78F0;
   }
 }
 .app .footer {
@@ -983,5 +1079,14 @@ img:hover {
   }
   .app .footer .footer_content .top_text {
     line-height: 25px;
+  }
+}
+.app .index_content .index_title {
+  display: none;
+  padding: 0;
+}
+@media screen and (max-width: 900px) {
+  .app .index_content .read_more {
+    display: block;
   }
 }/*# sourceMappingURL=index.css.map */
