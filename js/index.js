@@ -249,12 +249,24 @@ window.onload = function () {
       // 获取查询参数
       let id = window.location.search.split('=')[1].split('&')[0];
       this.details_info = await getJson('../api/details/details-' + id + '.json');
-      window.onscroll = function (e) {
-        let arr = [...document.querySelectorAll('.app .content .details .details_body .left .included .included_item img')]
-        if (window.pageYOffset > 400) {
-          arr.map(el => el.style.display = "none")
-        } else {
-          arr.map(el => el.style.display = "block")
+
+      window.onscroll = (e) => {
+        // 导航跟随
+        try {
+          let elements = this.details_info.content_list.map(el => el.amazon_adv).flat(1).map(el => ({ top: document.getElementById(el.id).offsetTop, ...el })).filter(Boolean)
+          for (let i = 0; i < elements.length; i++) {
+            if (window.pageYOffset >= elements[i].top - 100) {
+              this.active = i
+            }
+          }
+          let arr = [...document.querySelectorAll('.app .content .details .details_body .left .included .included_item img')]
+          if (window.pageYOffset > 400) {
+            arr.map(el => el.style.display = "none")
+          } else {
+            arr.map(el => el.style.display = "block")
+          }
+        } catch (error) {
+
         }
       }
     },
@@ -308,8 +320,8 @@ window.onload = function () {
                 <img
                   :src="item.picture"
                   alt="">
-                <h2 class="text_22">{{item.title && item.title.length > 10 ? item.title.slice(0, 10) + '...' : item.title}}</h2>
-                <p>{{item.specifications &&  item.specifications.length > 15 ? item.specifications.slice(0, 15) + '...' : item.specifications}}</p>
+                <h2 class="text_22">{{item.title}}</h2>
+                <p>{{item.specifications}}</p>
                 <a :href="item.link"><button>CHECK PRICE</button></a>
               </a>
              </template>
@@ -621,7 +633,7 @@ window.onload = function () {
                   :src="item.first_picture" />
                 <div class="right_item_text-group_1 flex-col">
                   <h2 class=" text_24">
-                    {{item.title.length > 28 ? item.title.slice(0, 24) + '...' : item.title}}
+                    {{item.title}}
                   </h2>
                   <p class="text_23">
                      Updated {{item.time_en}}
@@ -720,7 +732,7 @@ window.onload = function () {
                   :src="item.first_picture" />
                 <div class="right_item_text-group_1 flex-col ">
                   <h2 class="text_24">
-                   {{item.title.length > 28 ? item.title.slice(0, 24) + '...' : item.title}}
+                   {{item.title}}
                   </h2>
                   <p class="text_23">
                      Updated {{item.time_en}}
@@ -1026,7 +1038,7 @@ window.onload = function () {
       <img class="image_2" referrerpolicy="no-referrer" :src="item.first_picture" />
       <div class="bottom_item_text-group_1 flex-col ">
         <h2 class="text_21">
-          {{item.title.length > 28 ? item.title.slice(0, 24) + '...' : item.title}}
+          {{item.title}}
         </h2>
         <p class="text_23">
           Updated {{item.time_en}}

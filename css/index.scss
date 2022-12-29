@@ -19,7 +19,6 @@ $text_color: rgb(51, 51, 51);
     width: 100%;
     padding: 0 20px;
   }
-
 }
 
 @mixin text_hover {
@@ -28,12 +27,17 @@ $text_color: rgb(51, 51, 51);
   }
 }
 
-img {
-  transition: 0.3s;
+@mixin text_ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
 
+@mixin text_small {
   &:hover {
-    transform: scale(1.02);
-    transition: 0.3s;
+    color: $main_color;
   }
 }
 
@@ -45,6 +49,7 @@ img {
   font-family: Verdana;
   text-align: left;
   line-height: 24px;
+  @include text_ellipsis;
 
   @media screen and (max-width: 900px) {
     padding: 0 20px;
@@ -59,6 +64,7 @@ img {
   text-align: left;
   line-height: 42px;
   margin-bottom: 8px;
+  @include text_ellipsis;
   @include text_hover;
 }
 
@@ -72,6 +78,7 @@ img {
   white-space: wrap;
   line-height: 26px;
   margin-bottom: 8px;
+  @include text_ellipsis;
   @include text_hover;
 }
 
@@ -85,6 +92,7 @@ img {
   text-align: left;
   line-height: 22px;
   margin-bottom: 8px;
+  @include text_ellipsis;
   @include text_hover;
 }
 
@@ -98,6 +106,7 @@ img {
   white-space: wrap;
   line-height: 15px;
   margin-bottom: 8px;
+  @include text_ellipsis;
   @include text_hover;
 }
 
@@ -110,6 +119,7 @@ img {
   text-align: left;
   line-height: 26px;
   margin-bottom: 8px;
+  @include text_ellipsis;
   @include text_hover;
 }
 
@@ -121,6 +131,7 @@ img {
   text-align: left;
   line-height: 28px;
   margin-bottom: 8px;
+  @include text_ellipsis;
   @include text_hover;
 }
 
@@ -133,6 +144,7 @@ img {
   white-space: nowrap;
   line-height: 23px;
   margin-top: 29px;
+  @include text_ellipsis;
 }
 
 // 评分样式
@@ -459,7 +471,11 @@ img {
 
               h2,
               p {
-
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
                 height: 25px;
                 text-align: center;
               }
