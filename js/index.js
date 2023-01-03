@@ -243,7 +243,12 @@ window.onload = function () {
     el: DETAILS_BESTPICKS,
     data: {
       details_info: {},
-      active: 0
+      active: 0,
+    },
+    watch: {
+      active(value, newValue) {
+        setTimeout(() => { document.querySelector('.included').scrollLeft = value * 150 }, 200)
+      },
     },
     async mounted() {
       // 获取查询参数
@@ -256,7 +261,7 @@ window.onload = function () {
           let elements = this.details_info.content_list.map(el => el.amazon_adv).flat(1).map(el => ({ top: document.getElementById(el.id).offsetTop, ...el })).filter(Boolean)
           for (let i = 0; i < elements.length; i++) {
             if (window.pageYOffset >= elements[i].top - 100) {
-              this.active = i;
+              this.active = i
             }
           }
           let arr = [...document.querySelectorAll('.app .content .details .details_body .left .included .included_item img')]
@@ -274,7 +279,7 @@ window.onload = function () {
       shareLink(path) {
         let goPath = path.replace('xxxxx', window.location.href)
         window.open(goPath)
-      }
+      },
     },
     template: `<div class="details detailsBestpicks">
         <div class="details_body">

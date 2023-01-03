@@ -380,6 +380,7 @@
   }
 }
 .app .content .details .details_body .left .included {
+  scroll-behavior: smooth;
   margin-top: 10px;
   display: flex;
   overflow: auto;

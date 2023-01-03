@@ -422,6 +422,7 @@ $text_color: rgb(51, 51, 51);
           }
 
           .included {
+            scroll-behavior: smooth;
             margin-top: 10px;
             display: flex;
             overflow: auto;
