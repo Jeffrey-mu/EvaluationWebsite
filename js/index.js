@@ -19,6 +19,8 @@ const CHANNEL_PAGE = ".channelPage"
 const AUTHOR_CONTENT = ".author_content"
 const INDEX_CONTENT = ".index_content"
 window.onload = function () {
+  toTop()
+  addIcon()
   // 顶部公共
   renderElement(HEADERCLASSNAME, {
     el: HEADERCLASSNAME,
@@ -1160,3 +1162,14 @@ async function getJson(valuePath) {
 }
 
 
+function toTop() {
+  let script = document.createElement('script')
+  script.src = '../js/scrollToTop.js'
+  document.body.appendChild(script)
+}
+function addIcon() {
+  let link = document.createElement('link')
+  link.rel = 'icon'
+  link.href = '../images/icon.jpg'
+  document.head.appendChild(link)
+}

@@ -151,6 +151,16 @@
   overflow: hidden;
 }
 
+#toTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #3B78F0;
+  cursor: pointer;
+}
+
 .app {
   width: 100vw;
 }
@@ -380,6 +390,8 @@
   }
 }
 .app .content .details .details_body .left .included {
+  transition: 0.2s;
+  border-bottom: 0px solid red;
   scroll-behavior: smooth;
   margin-top: 10px;
   display: flex;
@@ -412,6 +424,7 @@
   top: -10px;
 }
 .app .content .details .details_body .left .included .included_item .tag {
+  transition: 0.2s;
   box-shadow: 1px 1px 1px 1px #e3e3e3;
   position: absolute;
   border-radius: 50%;
