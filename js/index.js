@@ -256,7 +256,7 @@ window.onload = function () {
           let elements = this.details_info.content_list.map(el => el.amazon_adv).flat(1).map(el => ({ top: document.getElementById(el.id).offsetTop, ...el })).filter(Boolean)
           for (let i = 0; i < elements.length; i++) {
             if (window.pageYOffset >= elements[i].top - 100) {
-              this.active = i
+              this.active = i;
             }
           }
           let arr = [...document.querySelectorAll('.app .content .details .details_body .left .included .included_item img')]
@@ -307,7 +307,7 @@ window.onload = function () {
             </p>
             <div class="included">
               <template v-for="item, index in details_info.content_list.map(el => el.amazon_adv).flat(1)">
-               <a :style="{borderBottom: index == active ? '4px solid red': '' }" :href="'#' + item.id" class="included_item"  @click="active = index">
+               <a :style="{borderBottom: index == active ? '4px solid red': '' }" :href="'#' + item.id" class="included_item">
                 <!--序号1显示红色-->
                 <div class="tag" :style="{backgroundColor: index  == active ? 'red' : '', color: index  == active ? '#fff' : ''}">
                 <!--内外下标相加得到序号-->
@@ -334,10 +334,11 @@ window.onload = function () {
               :src="details_info.first_picture"
               alt="">
            <template v-for="item in details_info.content_list">
-            <div class="details_subtitle" v-if="item.subtitle">
-              <div>{{item.subtitle}}</div>
-            </div>
-            <div style="margin-top: 20px"  :id="item.amazon_adv[0] ? item.amazon_adv[0].id : ''">
+
+            <div style="margin-top: 20px;"  :id="item.amazon_adv[0] ? item.amazon_adv[0].id : ''">
+              <div class="details_subtitle" v-if="item.subtitle">
+                <div>{{item.subtitle}}</div>
+              </div>
               <div v-html="item.content"></div>
               <!--<div class="amazon_adv">
                 <div class="amazon_adv_item" v-for="amazon_adv in item.amazon_adv">
