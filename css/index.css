@@ -6,11 +6,6 @@
   font-family: Verdana;
   text-align: left;
   line-height: 24px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
 }
 @media screen and (max-width: 900px) {
   .website_top_text {
@@ -166,12 +161,18 @@
 
 #toTop {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 10px;
+  bottom: 50px;
   font-size: 40px;
   margin-bottom: 20px;
   color: #3B78F0;
   cursor: pointer;
+}
+
+.Advertisement {
+  background: rgb(228, 228, 228);
+  text-align: center;
+  margin-top: 20px;
 }
 
 .app {
@@ -183,6 +184,7 @@
   display: flex;
   justify-content: space-between;
   height: 70px;
+  padding: 0 10px;
 }
 .app .header .search_box_pc {
   display: flex;
@@ -208,19 +210,18 @@
   width: 70%;
 }
 .app .header .search_box .search_box_input {
-  padding-left: 20px;
   border: 2px solid #111;
   border-radius: 50px;
   height: 60%;
   font-size: 20px;
   width: 100%;
+  padding-left: 10px;
 }
 .app .header .search_box,
 .app .header .phone_menu,
 .app .header .phone_search {
   display: none;
   line-height: 70px;
-  padding: 0 20px;
 }
 .app .header .text-wrapper_2 {
   display: block;
@@ -651,7 +652,6 @@
   }
 }
 .app .content .typePage {
-  display: flex;
   padding-bottom: 20px;
 }
 .app .content .typePage .left {
@@ -686,6 +686,9 @@
 .app .content .typePage .left .typePage_top_content .right .right_item {
   display: flex;
   margin-bottom: 20px;
+}
+.app .content .typePage .left .typePage_top_content .right .right_item:last-child {
+  border: none;
 }
 .app .content .typePage .left .typePage_top_content .right .right_item .right_item_text-group_1 {
   display: flex;
@@ -740,6 +743,9 @@
   margin-top: 30px;
   padding-bottom: 30px;
   border-bottom: 1px solid #ccc;
+}
+.app .content .typePage .left .article_block .article_list .article_item:last-child {
+  border-bottom: none;
 }
 @media screen and (max-width: 900px) {
   .app .content .typePage .left .article_block .article_list .article_item img {
@@ -951,6 +957,9 @@
   overflow-y: hidden;
   overflow-x: auto;
 }
+.app .content .top_recommendation .active_null_des {
+  color: #3B78F0;
+}
 .app .content .top_recommendation .active {
   overflow-wrap: break-word;
   color: #3B78F0;
@@ -1038,6 +1047,9 @@
     padding-bottom: 30px;
     border-bottom: 1px solid #444;
   }
+  .app .content .bottom .bottom_item:last-child {
+    border: none;
+  }
   .app .content .bottom .bottom_item .image_2 {
     width: 40%;
     margin: 0;
@@ -1110,7 +1122,7 @@
 .app .content .read_more span {
   overflow-wrap: break-word;
   color: rgb(51, 51, 51);
-  font-size: 24px;
+  font-size: 20px;
   font-family: Arial-BoldMT;
   text-align: left;
   white-space: nowrap;
@@ -1149,6 +1161,7 @@
 }
 .app .footer {
   background: #333333;
+  padding-bottom: 50px;
 }
 .app .footer .footer_content {
   max-width: 1200px;

@@ -274,6 +274,7 @@
   }
   let span = document.createElement('span')
   span.id = "toTop"
+  span.title = "go to top"
   span.classList.add('iconfont')
   span.classList.add('icon-backtotop')
   document.body.appendChild(span)
