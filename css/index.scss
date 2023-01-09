@@ -182,6 +182,16 @@ $text_color: rgb(51, 51, 51);
   margin-top: 20px;
 }
 
+@media screen and (max-width: 900px) {
+  .details {
+    .Advertisement {
+      width: 100vw;
+      position: relative;
+      left: -20px;
+    }
+  }
+}
+
 .app {
   width: 100vw;
 
@@ -701,7 +711,7 @@ $text_color: rgb(51, 51, 51);
 
         .right {
           width: 25%;
-          background: #eee;
+          // background: #eee;
 
           @media screen and (max-width: 900px) {
             display: none;
@@ -947,7 +957,7 @@ $text_color: rgb(51, 51, 51);
       .right {
         @include display_none_phone;
         width: 25%;
-        background-color: rgba(231, 231, 231, 1);
+        // background-color: rgba(231, 231, 231, 1);
       }
     }
 
@@ -1073,7 +1083,7 @@ $text_color: rgb(51, 51, 51);
       .right {
         @include display_none_phone;
         width: 25%;
-        background-color: rgba(231, 231, 231, 1);
+        // background-color: rgba(231, 231, 231, 1);
       }
     }
 

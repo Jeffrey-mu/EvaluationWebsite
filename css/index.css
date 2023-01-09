@@ -175,6 +175,13 @@
   margin-top: 20px;
 }
 
+@media screen and (max-width: 900px) {
+  .details .Advertisement {
+    width: 100vw;
+    position: relative;
+    left: -20px;
+  }
+}
 .app {
   width: 100vw;
 }
@@ -604,7 +611,6 @@
 }
 .app .content .details .details_body .right {
   width: 25%;
-  background: #eee;
 }
 @media screen and (max-width: 900px) {
   .app .content .details .details_body .right {
@@ -804,7 +810,6 @@
 }
 .app .content .typePage .right {
   width: 25%;
-  background-color: rgb(231, 231, 231);
 }
 @media screen and (max-width: 900px) {
   .app .content .typePage .right {
@@ -911,7 +916,6 @@
 }
 .app .content .author .right {
   width: 25%;
-  background-color: rgb(231, 231, 231);
 }
 @media screen and (max-width: 900px) {
   .app .content .author .right {

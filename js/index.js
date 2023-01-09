@@ -42,7 +42,7 @@ window.onload = function () {
       this.adv = await getJson('../api/index_' + this.type + '.json');
       this.$nextTick(() => {
         this.adv.forEach(item => {
-          item.position_id == 1 ? $('head').html($('head').html() + item.script) : ''
+          item.position_id == 1 ? $('head').append(item.script) : ''
           item.position_id == 2 ? $('.typePage').html(`<div class="Advertisement">Advertisement${item.script}</div>` + $('.typePage').html()) : ''
           item.position_id == 3 ? $('.typePage').html($('.typePage').html() + `<div class="Advertisement">Advertisement${item.script}</div>`) : ''
           item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0">${item.script}</div>`) : ''
@@ -146,7 +146,7 @@ window.onload = function () {
   renderElement(MENUCLASSNAME, {
     el: MENUCLASSNAME,
     data: {
-      menu: [],
+      menu: [{ "id": 18, "name": "Best-picks", "type": "1" }, { "id": 19, "name": "Review", "type": "1" }, { "id": 20, "name": "Home & Garden", "type": "2" }, { "id": 21, "name": "Money", "type": "2" }, { "id": 22, "name": "Tech", "type": "2" }, { "id": 23, "name": "Health", "type": "2" }],
       type: ''
     },
     async mounted() {
@@ -312,10 +312,12 @@ window.onload = function () {
       this.type = a.type || '4'
       let id = a.id
       this.details_info = await getJson('../api/details/details-' + id + '.json');
+      $('head').append(`<meta name="keywords" content="${this.details_info.keyword}">`)
+      $('head').append(`<meta name="description" content="${this.details_info.description}">`)
       this.adv = await getJson('../api/details_' + this.type + '.json');
       this.$nextTick(() => {
         this.adv.forEach(item => {
-          item.position_id == 1 ? $('head').html($('head').html() + item.script?.replace(/_pageID_/g, id)) : ''
+          item.position_id == 1 ? $('head').append(item.script?.replace(/_pageID_/g, id)) : ''
           item.position_id == 2 ? $('.detailstop').html(`<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>` + $('.detailstop').html()) : ''
           item.position_id == 3 ? $('.detailsbottom').html($('.detailsbottom').html() + `<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
           item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0;">${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
@@ -534,10 +536,13 @@ window.onload = function () {
       this.type = a.type || '4'
       let id = a.id
       this.details_info = await getJson('../api/details/details-' + id + '.json');
+      this.details_info = await getJson('../api/details/details-' + id + '.json');
+      $('head').append(`<meta name="keywords" content="${this.details_info.keyword}">`)
+      $('head').append(`<meta name="description" content="${this.details_info.description}">`)
       this.adv = await getJson('../api/details_' + this.type + '.json');
       this.$nextTick(() => {
         this.adv.forEach(item => {
-          item.position_id == 1 ? $('head').html($('head').html() + item.script?.replace(/_pageID_/g, id)) : ''
+          item.position_id == 1 ? $('head').append(item.script?.replace(/_pageID_/g, id)) : ''
           item.position_id == 2 ? $('.detailstop').html(`<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>` + $('.detailstop').html()) : ''
           item.position_id == 3 ? $('.detailsbottom').html($('.detailsbottom').html() + `<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
           item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0;">${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
