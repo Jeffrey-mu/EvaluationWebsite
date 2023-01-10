@@ -1030,7 +1030,32 @@
     width: 100%;
   }
   .app .content .top_content .left {
+    width: 100%;
+    padding: 0;
+    margin-top: 20px;
+  }
+  .app .content .top_content .left .left_item_hr {
     display: none;
+  }
+  .app .content .top_content .left .left_item {
+    flex-direction: row-reverse;
+    border-bottom: 1px solid #444;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    justify-content: start;
+  }
+  .app .content .top_content .left .left_item .left_item_text-group_1 {
+    width: 60%;
+    padding-left: 20px;
+  }
+  .app .content .top_content .left .left_item:last-child {
+    margin-bottom: 0;
+  }
+  .app .content .top_content .left .left_item .text_22 {
+    display: none;
+  }
+  .app .content .top_content .left .left_item .image_2 {
+    width: 40%;
   }
 }
 .app .content .bottom {
@@ -1073,6 +1098,22 @@
     padding-left: 20px;
   }
 }
+@media screen and (max-width: 900px) {
+  .app .content .best_picks .right {
+    border-bottom: 1px solid #444;
+    padding-bottom: 30px;
+  }
+  .app .content .best_picks .left .left_item .image_2 {
+    display: none;
+  }
+  .app .content .best_picks .left .left_item .text_22 {
+    display: block;
+  }
+  .app .content .best_picks .left .left_item .left_item_text-group_1 {
+    width: 100%;
+    padding: 0;
+  }
+}
 .app .content .best_picks_bottom {
   display: none;
 }
@@ -1082,12 +1123,16 @@
     flex-direction: column;
     padding: 0 20px;
   }
+  .app .content .best_picks_bottom .best_picks .left .left_item .image_2 {
+    display: none;
+  }
   .app .content .best_picks_bottom .bottom_item {
     flex-direction: row;
     width: 100%;
     margin-bottom: 30px;
     padding-bottom: 30px;
     border-bottom: 1px solid #444;
+    flex-direction: column;
   }
   .app .content .best_picks_bottom .bottom_item .image_2 {
     display: none;
@@ -1216,6 +1261,9 @@
 .app .index_content .index_title {
   display: none;
   padding: 0;
+}
+.app .index_content .right {
+  display: block !important;
 }
 @media screen and (max-width: 900px) {
   .app .index_content .read_more {
