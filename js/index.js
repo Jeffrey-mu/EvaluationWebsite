@@ -88,7 +88,7 @@ window.onload = function () {
     },
     methods: {
       handleShowMenu() {
-        document.querySelector('.menu_phone').style.display = 'block';
+        document.querySelector('.menu_phone').style.width = '100vw';
       },
       shareLink(path) {
         let goPath = path.replace('xxxxx', window.location.href)
@@ -196,7 +196,7 @@ window.onload = function () {
     methods: {
       handleEmpy(e) {
         if (e.target.className === 'menu_phone_content') {
-          document.querySelector('.menu_phone').style.display = 'none';
+          document.querySelector('.menu_phone').style.width = '0';
         }
       }
     },
@@ -314,6 +314,7 @@ window.onload = function () {
       this.details_info = await getJson('../api/details/details-' + id + '.json');
       $('head').append(`<meta name="keywords" content="${this.details_info.keyword}">`)
       $('head').append(`<meta name="description" content="${this.details_info.description}">`)
+      $('title').html(`${this.details_info.title}`)
       this.adv = await getJson('../api/details_' + this.type + '.json');
       this.$nextTick(() => {
         this.adv.forEach(item => {
@@ -539,6 +540,7 @@ window.onload = function () {
       this.details_info = await getJson('../api/details/details-' + id + '.json');
       $('head').append(`<meta name="keywords" content="${this.details_info.keyword}">`)
       $('head').append(`<meta name="description" content="${this.details_info.description}">`)
+      $('title').html(`${this.details_info.title}`)
       this.adv = await getJson('../api/details_' + this.type + '.json');
       this.$nextTick(() => {
         this.adv.forEach(item => {
