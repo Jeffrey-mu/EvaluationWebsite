@@ -160,9 +160,11 @@ $text_color: rgb(51, 51, 51);
 
 // 评分样式
 .start {
+  display: flex;
   color: $main_color;
   margin-bottom: 8px;
   width: 80px;
+  height: 16px;
   overflow: hidden;
 }
 

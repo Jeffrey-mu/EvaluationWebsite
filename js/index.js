@@ -568,8 +568,11 @@ window.onload = function () {
   </h2>
 
   <p class="text_23">
-    <span class="start" style="display: inline_block"><span v-for="el in details_info.score">★</span><span
-        v-for="el in 5" style="color:#ccc">★</span></span><span class="text_23"> By {{details_info.author_name}} published
+    <span class="start" style="display: inline_block">
+    <img v-for="el in Math.floor(Number(details_info.score))" src="../images/start.png" width="16">
+    <img src="../images/startx.png" width="16" v-if="details_info.score.includes('.')">
+    <img v-for="el in 5" src="../images/start-.png" width="16">
+    </span><span class="text_23"> By {{details_info.author_name}} published
       {{Math.floor((+new Date() - +new Date(details_info.release_time)) / 1000 / (60 * 60 * 24)) }} days ago</span>
   </p>
   <p class="text_25">
@@ -782,7 +785,9 @@ window.onload = function () {
                      By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
                   </div>
                   <div class="start">
-                   <span v-for="el in Number(item.score)">★</span><span v-for="el in 5" style="color:#ccc">★</span>
+                   <img v-for="el in Math.floor(Number(item.score))" src="../images/start.png" width="16">
+                  <img src="../images/startx.png" width="16" v-if="item.score.includes('.')">
+                   <img v-for="el in 5" src="../images/start-.png" width="16">
                   </div>
                   <div class="text_22">
                     {{item.main_title}}
@@ -1004,7 +1009,9 @@ window.onload = function () {
                By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
             </div>
             <div class="start" v-if="item.type == 1">
-              <span v-for="el in Number(item.score)">★</span><span v-for="el in 5" style="color:#ccc">★</span>
+               <img v-for="el in Math.floor(Number(item.score))" src="../images/start.png" width="16">
+                  <img src="../images/startx.png" width="16" v-if="item.score.includes('.')">
+                   <img v-for="el in 5" src="../images/start-.png" width="16">
             </div>
             <div class="text_22">
               {{item.description}}
@@ -1109,7 +1116,9 @@ window.onload = function () {
                     By {{authorResult.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
                   </div>
                   <div class="start" v-if="item.type == 2">
-                    <span v-for="el in Number(item.score)">★</span><span v-for="el in 5" style="color:#ccc">★</span>
+                     <img v-for="el in Math.floor(Number(item.score))" src="../images/start.png" width="16">
+                  <img src="../images/startx.png" width="16" v-if="item.score.includes('.')">
+                   <img v-for="el in 5" src="../images/start-.png" width="16">
                   </div>
                   <div class="text_22">
                     {{item.main_title}}
@@ -1283,7 +1292,9 @@ window.onload = function () {
           {{item.title}}
         </h2>
         <p class="start">
-          <span v-for="el in Number(item.score)">★</span><span v-for="el in 5" style="color:#ccc">★</span>
+           <img v-for="el in Math.floor(Number(item.score))" src="../images/start.png" width="16">
+                  <img src="../images/startx.png" width="16" v-if="item.score.includes('.')">
+                   <img v-for="el in 5" src="../images/start-.png" width="16">
         </p>
         <p class="text_22">
           {{item.main_title}}

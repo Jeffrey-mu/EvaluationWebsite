@@ -153,9 +153,11 @@
 }
 
 .start {
+  display: flex;
   color: #3B78F0;
   margin-bottom: 8px;
   width: 80px;
+  height: 16px;
   overflow: hidden;
 }
 
