@@ -252,7 +252,7 @@ window.onload = function () {
     },
     template: `<div class="footer">
                 <div class="footer_content">
-                  <p class="top_text">Top Ten Reviews is part of Future US Inc, an international media group and leading digital publisher. Visit our corporate site(opens in new tab)</p>
+                  <p class="top_text">Evaluation station helps you find your tech sweet spot. We steer you to products you'll love and show you how to get the most out of them.</p>
                   <div class="footer_content_hr"></div>
                    <p class="more_text">
                       <a href="./Terms and conditions.html">
@@ -315,7 +315,7 @@ window.onload = function () {
       $('head').append(`<meta name="keywords" content="${this.details_info.keyword}">`)
       $('head').append(`<meta name="description" content="${this.details_info.description}">`)
       $('title').html(`${this.details_info.title}`)
-      this.adv = await getJson('../api/details_' + this.type + '.json');
+      this.adv = await getJson('../api/details_' + this.type + '.json') || [];
       this.$nextTick(() => {
         this.adv.forEach(item => {
           item.position_id == 1 ? $('head').append(item.script?.replace(/_pageID_/g, id)) : ''
@@ -325,7 +325,9 @@ window.onload = function () {
         })
 
       })
+      console.log("e.target.scrollTop")
       window.onscroll = (e) => {
+        console.log(e.target.scrollTop)
         // 导航跟随
         try {
           let elements = this.details_info.content_list.map(el => el.amazon_adv).flat(1).map(el => ({ top: document.getElementById(el.id).offsetTop, ...el })).filter(Boolean)

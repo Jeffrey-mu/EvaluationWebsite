@@ -118,7 +118,6 @@ $text_color: rgb(51, 51, 51);
   line-height: 15px;
   margin-bottom: 8px;
   @include text_ellipsis;
-  @include text_hover;
 }
 
 // 二级标题文字样式
