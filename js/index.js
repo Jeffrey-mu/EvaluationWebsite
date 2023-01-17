@@ -37,10 +37,12 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '1'
       this.searchResult = await getJson('../api/search/search.json');
+      this.type = a.type || '1'
       this.adv = await getJson('../api/index_' + this.type + '.json');
       this.$nextTick(() => {
+        if (window.location.pathname.includes('channelPage'))
+          return
         this.adv.forEach(item => {
           item.position_id == 1 ? $('head').append(item.script) : ''
           item.position_id == 2 ? $('.typePage').html(`<div class="Advertisement">Advertisement${item.script}</div>` + $('.typePage').html()) : ''
@@ -155,8 +157,18 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '4'
+      this.type = a.type || '1'
       this.menu = await getJson('../api/channel/menu.json');
+      // this.adv = await getJson('../api/index_' + this.type + '.json');
+      // this.$nextTick(() => {
+      //   this.adv.forEach(item => {
+      //     item.position_id == 1 ? $('head').append(item.script) : ''
+      //     item.position_id == 2 ? $('.typePage').html(`<div class="Advertisement">Advertisement${item.script}</div>` + $('.typePage').html()) : ''
+      //     item.position_id == 3 ? $('.typePage').html($('.typePage').html() + `<div class="Advertisement">Advertisement${item.script}</div>`) : ''
+      //     item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0">${item.script}</div>`) : ''
+      //   })
+      // })
+      this.type = 4
     },
 
     template: `
@@ -958,7 +970,17 @@ window.onload = function () {
       })
       this.type = a.type || '4'
       // 获取查询参数
-      this.getData()
+      await this.getData()
+      this.adv = await getJson('../api/index_' + this.type + '.json');
+      this.$nextTick(() => {
+        this.adv.forEach(item => {
+          item.position_id == 1 ? $('head').append(item.script) : ''
+          item.position_id == 2 ? $('.typePage').html(`<div class="Advertisement">Advertisement${item.script}</div>` + $('.typePage').html()) : ''
+          item.position_id == 3 ? $('.typePage').html($('.typePage').html() + `<div class="Advertisement">Advertisement${item.script}</div>`) : ''
+          item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0">${item.script}</div>`) : ''
+        })
+      })
+
     },
     template: `<div class="typePage channelPage">
   <div class="left">
