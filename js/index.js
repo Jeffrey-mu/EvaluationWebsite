@@ -19,8 +19,7 @@ const CHANNEL_PAGE = ".channelPage"
 const AUTHOR_CONTENT = ".author_content"
 const INDEX_CONTENT = ".index_content"
 window.onload = function () {
-  toTop()
-  addIcon()
+  init()
   // 顶部公共
   renderElement(HEADERCLASSNAME, {
     el: HEADERCLASSNAME,
@@ -59,7 +58,7 @@ window.onload = function () {
         else
           this.successSearchResult = []
         document.querySelector(SEARCH_RESULT).innerHTML = this.successSearchResult.map((item, index) => `
-            ${!index ? `<div class="article_block">
+            ${!index ? `<div class="article_block animate__animated animate__fadeIn">
               <div class="article_title">
                 <span class="text_22" style="margin: 0px 0 30px 0">
                   Search result for laptop
@@ -95,13 +94,16 @@ window.onload = function () {
       shareLink(path) {
         let goPath = path.replace('xxxxx', window.location.href)
         window.open(goPath)
+      },
+      isTrue() {
+        return location.pathname == '/'
       }
     },
     template: `<div class="header">
       <div class="phone_menu icon iconfont" @click="handleShowMenu">
        &#xe790;
       </div>
-      <a :href="'/' + '?&type=' + type" class="text-wrapper_1" :style="{display: showSearch ? 'none' : 'block'}" v-if="!showSearch">
+      <a :href="'/' + '?&type=' + type" class="text-wrapper_1 animate__animated" :class="{animate__backInRight: isTrue()}" :style="{display: showSearch ? 'none' : 'block'}" v-if="!showSearch">
         <span class="text_1">Evaluation</span>
         <span class="text_2">station</span>
       </a>
@@ -249,7 +251,7 @@ window.onload = function () {
       this.topRecommendation = await getJson('../api/channel/topping.json');
     },
     template: `<div class="top_recommendation">
-        <a class="active_null active_null_des" >
+        <a class="active_null active_null_des animate__animated animate__heartBeat">
           <span class="text_13">HOT NOW</span>
         </a>
         <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id + '&type=' + type : './detailsReviews.html?id=' + item.id + '&type=' + type" class="active_null" v-for="item in topRecommendation">
@@ -367,7 +369,7 @@ window.onload = function () {
     },
     template: `<div class="details detailsBestpicks">
 
-        <div class="details_body">
+        <div class="details_body animate__animated animate__fadeIn">
           <div class="left">
             <div class="crumbs">
               <a :href="'/' + '?&type=' + type">Home</a> > <a :href="'./bestpicksPage.html?id=1-18-1' + '&type=' + type">Best.picks</a>
@@ -571,7 +573,7 @@ window.onload = function () {
         window.open(goPath)
       },
     },
-    template: `<div class="details detailsReviews">
+    template: `<div class="details detailsReviews animate__animated animate__fadeIn">
   <div class="crumbs">
     <a :href="'/' + '?&type=' + type">Home</a> > <a :href="'./reviewsPage.html?id=1-19-1' + '&type=' + type">Reviews</a>
   </div>
@@ -751,7 +753,7 @@ window.onload = function () {
     },
     template: ` <div class="typePage reviewsPage">
         <div class="left">
-          <div class="typePage_top_content">
+          <div class="typePage_top_content animate__animated animate__fadeIn">
             <a :href="'./detailsReviews.html?id=' + channelResult[0].id + '&type=' + type" class="left">
               <img class="image_2" referrerpolicy="no-referrer"
                 :src="channelResult[0].first_picture" />
@@ -862,7 +864,7 @@ window.onload = function () {
       this.type = a.type || '4'
       this.getData();
     },
-    template: `<div class="typePage bestpicksPage">
+    template: `<div class="typePage bestpicksPage animate__animated animate__fadeIn">
         <div class="left">
           <div class="typePage_top_content">
             <a :href="'./detailsBestpicks.html?id=' + channelResult[0].id + '&type=' + type" class="left">
@@ -982,7 +984,7 @@ window.onload = function () {
       })
 
     },
-    template: `<div class="typePage channelPage">
+    template: `<div class="typePage channelPage animate__animated animate__fadeIn">
   <div class="left">
     <h2 style="margin-top: 20px; font-size: 28px;">{{menu.find(el => el.id == id.split('-')[1]).name}}</h2>
     <div class="typePage_top_content">
@@ -1362,6 +1364,18 @@ function addIcon() {
   let link = document.createElement('link')
   link.rel = 'icon'
   link.href = '../images/icon.jpg'
+  document.head.appendChild(link)
+}
+function init() {
+  addAnimate()
+  toTop()
+  addIcon()
+}
+function addAnimate() {
+  let link = document.createElement('link')
+  link.rel = 'stylesheet'
+  link.type = "text/css"
+  link.href = '../css/animate.css'
   document.head.appendChild(link)
 }
 /*! jQuery v3.1.1 | (c) jQuery Foundation | jquery.org/license */
