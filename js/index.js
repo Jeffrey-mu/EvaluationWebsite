@@ -178,9 +178,7 @@ window.onload = function () {
       <div class="menu_content">
         <div class="block_1 flex-row">
           <a :href="'/' + '?&type=' + type" class="block_1_item flex-col" style="margin: 14px 0;">
-            <div class="icon iconfont" style="color:#fff; font-size: 23px" >
-              &#xe750;
-            </div>
+<svg t="1675150151577" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1490" width="23" height="23"><path d="M982.028557 404.405174 573.32303 83.942886c-34.918864-27.694272-89.619352-27.694272-124.538216 0L43.175542 404.577188c-13.933143 11.008903-16.169326 31.134554-5.332437 44.895683s31.134554 16.169326 44.895683 5.332437l13.073072-10.320847 0 387.547791c0 54.872501 56.936671 95.983874 107.852847 95.983874l639.892491 0c50.22812 0 84.1149-38.531161 84.1149-95.983874L927.672098 443.452377l14.449185 11.352931c5.84848 4.644381 12.729044 6.880564 19.781623 6.880564 9.460776 0 18.921552-4.128339 25.286074-12.213002C998.369898 435.539728 995.789686 415.414077 982.028557 404.405174zM607.897867 797.113388l0 66.741475-63.989249 0-63.989249 0-63.989249 0 0-66.741475 0-112.325214c0-37.155048 30.102469-77.234336 95.983874-77.234336 66.053418 0 95.983874 40.079288 95.983874 77.234336L607.897867 797.113388 607.897867 797.113388z" fill="#ffffff" p-id="1491"></path></svg>
           </a>
           <div class="block_1_item flex-col" v-for="item in menu">
             <a :href="item.id == '18' ? './bestpicksPage.html?id=' + item.type + '-' + item.id + '-' + 1  + '&type=' + type:
@@ -801,9 +799,9 @@ window.onload = function () {
                      By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
                   </div>
                   <div class="start">
-                   <img v-for="el in Math.floor(Number((''+item.score)))" src="../images/start.png" width="16">
-                  <img src="../images/startx.png" width="16" v-if="(''+item.score).includes('.')">
-                   <img v-for="el in 5" src="../images/start-.png" width="16">
+                   <img style="display:block" v-for="el in Math.floor(Number((''+item.score)))" src="../images/start.png" width="16">
+                  <img style="display:block" src="../images/startx.png" width="16" v-if="(''+item.score).includes('.')">
+                   <img style="display:block" v-for="el in 5" src="../images/start-.png" width="16">
                   </div>
                   <div class="text_22">
                     {{item.main_title}}
