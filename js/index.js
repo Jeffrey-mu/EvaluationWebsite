@@ -18,6 +18,8 @@ const BESTPICKS_PAGE = ".bestpicksPage"
 const CHANNEL_PAGE = ".channelPage"
 const AUTHOR_CONTENT = ".author_content"
 const INDEX_CONTENT = ".index_content"
+addAnimate()
+
 window.onload = function () {
   init()
   // 顶部公共
@@ -1365,9 +1367,9 @@ function addIcon() {
   document.head.appendChild(link)
 }
 function init() {
-  addAnimate()
   toTop()
   addIcon()
+  addProgressBar()
 }
 function addAnimate() {
   let link = document.createElement('link')
@@ -1375,6 +1377,16 @@ function addAnimate() {
   link.type = "text/css"
   link.href = '../css/animate.css'
   document.head.appendChild(link)
+}
+function addProgressBar() {
+  let link = document.createElement('link')
+  let script = document.createElement('script')
+  link.rel = 'stylesheet'
+  link.type = "text/css"
+  link.href = '../css/pace.css'
+  script.src = '../js/pace.js'
+  document.head.appendChild(link)
+  document.head.appendChild(script)
 }
 /*! jQuery v3.1.1 | (c) jQuery Foundation | jquery.org/license */
 !function (a, b) { "use strict"; "object" == typeof module && "object" == typeof module.exports ? module.exports = a.document ? b(a, !0) : function (a) { if (!a.document) throw new Error("jQuery requires a window with a document"); return b(a) } : b(a) }("undefined" != typeof window ? window : this, function (a, b) {
