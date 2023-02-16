@@ -63,12 +63,12 @@ window.onload = function () {
             ${!index ? `<div class="article_block animate__animated animate__fadeIn">
               <div class="article_title">
                 <span class="text_22" style="margin: 0px 0 30px 0">
-                  Search result for laptop
+                  Search result for ${value}
                 </span>
               </div>
           </div>` : ''
           }
-            <a href="${item.type == 1 ? './detailsBestpicks.html?id=' + item.id : './detailsReviews.html?id=' + item.id + '&type=' + type}" class="article_item" style="padding-bottom: 20px;margin-top: 20px; border-bottom: 1px solid #ccc; display: inline-block;width: 100%">
+            <a href="${item.type == 1 ? './detailsBestpicks.html?id=' + item.id + '&type=' + this.type : './detailsReviews.html?id=' + item.id + '&type=' + this.type}" class="article_item" style="padding-bottom: 20px;margin-top: 20px; border-bottom: 1px solid #ccc; display: inline-block;width: 100%">
                 <img class="image_2" style="width: 100%;" referrerpolicy="no-referrer"
                   src="${item.first_picture}" />
                 <div class="article_item_text-group_1">
@@ -106,13 +106,13 @@ window.onload = function () {
        &#xe790;
       </div>
       <a :href="'/' + '?&type=' + type" class="text-wrapper_1 animate__animated" :class="{animate__backInRight: isTrue()}" :style="{display: showSearch ? 'none' : 'block'}" v-if="!showSearch">
-        <span class="text_1">Evaluation</span>
-        <span class="text_2">station</span>
+        <span class="text_1">SnnSnn </span>
+        <span class="text_2">Reviews</span>
       </a>
       <!-- 双标签解决双端正常显示网站名称-->
       <a :href="'/' + '?&type=' + type" class="text-wrapper_1 text-wrapper_2" v-else>
-        <span class="text_1">Evaluation</span>
-        <span class="text_2">station</span>
+        <span class="text_1">SnnSnn </span>
+        <span class="text_2">Reviews</span>
       </a>
       <div class="search_box" v-if="showSearch">
         <input type="text" v-model="searchKeys" class="search_box_input">
@@ -120,11 +120,11 @@ window.onload = function () {
       <div class="share">
         <img class="label_1" referrerpolicy="no-referrer"
           src="../images/faceBook" @click="shareLink('https://www.facebook.com/sharer/sharer.php?u=xxxxx')"/>
-        <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the Evaluation station website.')" referrerpolicy="no-referrer"
+        <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
           src="../images/Twitter" />
-        <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the Evaluation station website.')" referrerpolicy="no-referrer"
+        <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
           src="../images/Q" />
-        <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the Evaluation station website.&url=xxxxx')" referrerpolicy="no-referrer"
+        <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the SnnSnn Reviews website.&url=xxxxx')" referrerpolicy="no-referrer"
           src="../images/San" />
         <img class="label_5" @click="shareLink('mailto:info@example.com?&subject=&cc=&bcc=&body=xxxxx%0A')" referrerpolicy="no-referrer"
           src="../images/Email" />
@@ -152,7 +152,7 @@ window.onload = function () {
   renderElement(MENUCLASSNAME, {
     el: MENUCLASSNAME,
     data: {
-      menu: [{ "id": 18, "name": "Best-picks", "type": "1" }, { "id": 19, "name": "Review", "type": "1" }, { "id": 20, "name": "Home & Garden", "type": "2" }, { "id": 21, "name": "Money", "type": "2" }, { "id": 22, "name": "Tech", "type": "2" }, { "id": 23, "name": "Health", "type": "2" }],
+      menu: [{ "id": 18, "name": "Best Picks", "type": "1" }, { "id": 19, "name": "Review", "type": "1" }, { "id": 20, "name": "Home & Garden", "type": "2" }, { "id": 21, "name": "Money", "type": "2" }, { "id": 22, "name": "Tech", "type": "2" }, { "id": 23, "name": "Health", "type": "2" }],
       type: ''
     },
     async mounted() {
@@ -254,8 +254,9 @@ window.onload = function () {
         <a class="active_null active_null_des animate__animated animate__heartBeat">
           <span class="text_13">HOT NOW</span>
         </a>
-        <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id + '&type=' + type : './detailsReviews.html?id=' + item.id + '&type=' + type" class="active_null" v-for="item in topRecommendation">
-          <span class="text_13">{{item.topping_title}}</span></a>
+        <div style="overflow: auto;
+    flex: 1;"> <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id + '&type=' + type : './detailsReviews.html?id=' + item.id + '&type=' + type" class="active_null" v-for="item in topRecommendation">
+          <span class="text_13">{{item.topping_title}}</span></a></div>
       </div>`
   })
 
@@ -266,7 +267,7 @@ window.onload = function () {
     },
     template: `<div class="footer">
                 <div class="footer_content">
-                  <p class="top_text">Evaluation station helps you find your tech sweet spot. We steer you to products you'll love and show you how to get the most out of them.</p>
+                  <p class="top_text">SnnSnn Reviews helps you find your tech sweet spot. We steer you to products you'll love and show you how to get the most out of them.</p>
                   <div class="footer_content_hr"></div>
                    <p class="more_text">
                       <a href="./Terms and conditions.html">
@@ -283,9 +284,10 @@ window.onload = function () {
                       </a>
                       </p>
                       <p class="more_text">
-                      <a href="./Archives.html">
+                      <!--
+                      <a style="color">
                         Archives
-                      </a>
+                      </a>-->
                       <a href="./Advertise.html">
                         Advertise
                       </a>
@@ -296,8 +298,9 @@ window.onload = function () {
                         Contact us
                       </a>
                    </p>
+                   <!--
                    <div class="footer_content_hr"></div>
-                   <p class="top_text">@Full 7130 West 42nd street , New York . NY 10036</p>
+                   <p class="top_text">@Full 7130 West 42nd street , New York . NY 10036</p>-->
                 </div>
               </div>`
   })
@@ -309,7 +312,8 @@ window.onload = function () {
       details_info: {},
       active: 0,
       adv: [],
-      type: ''
+      type: '',
+      menu: [{ "id": 18, "name": "Best Picks", "type": "1" }, { "id": 19, "name": "Review", "type": "1" }, { "id": 20, "name": "Home & Garden", "type": "2" }, { "id": 21, "name": "Money", "type": "2" }, { "id": 22, "name": "Tech", "type": "2" }, { "id": 23, "name": "Health", "type": "2" }]
     },
     watch: {
       active(value, newValue) {
@@ -317,6 +321,7 @@ window.onload = function () {
       },
     },
     async mounted() {
+      this.menu = await getJson('../api/channel/menu.json');
       // 获取查询参数
       let search = window.location.search.slice(1)
       let a = {}
@@ -339,9 +344,7 @@ window.onload = function () {
         })
 
       })
-      console.log("e.target.scrollTop")
       window.onscroll = (e) => {
-        console.log(e.target.scrollTop)
         // 导航跟随
         try {
           let elements = this.details_info.content_list.map(el => el.amazon_adv).flat(1).map(el => ({ top: document.getElementById(el.id).offsetTop, ...el })).filter(Boolean)
@@ -376,22 +379,22 @@ window.onload = function () {
             </div>
             <div class="detailstop">
             </div>
-            <h2 class="text_20">
+            <h2 class="text_20" style="-webkit-line-clamp: 10;}">
             {{details_info.title}}
             </h2>
             <p class="text_23">
              <span class="text_23">By {{details_info.author_name}} published {{Math.floor((+new Date() - +new Date(details_info.release_time)) / 1000 / (60 * 60 * 24)) }} days ago</span>
             </p>
-            <p class="text_25">
+            <p class="text_25" style="-webkit-line-clamp: 10;}">
             {{details_info.description}}
             </p>
             <div class="share">
               <img class="label_1" referrerpolicy="no-referrer" src="../images/faceBook" @click="shareLink('https://www.facebook.com/sharer/sharer.php?u=xxxxx')"/>
-              <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the Evaluation station website.')" referrerpolicy="no-referrer"
+              <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
                 src="../images/Twitter" />
-              <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the Evaluation station website.')" referrerpolicy="no-referrer"
+              <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
                 src="../images/Q" />
-              <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the Evaluation station website.&url=xxxxx')" referrerpolicy="no-referrer"
+              <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the SnnSnn Reviews website.&url=xxxxx')" referrerpolicy="no-referrer"
                 src="../images/San" />
               <img class="label_5" @click="shareLink('mailto:info@example.com?&subject=&cc=&bcc=&body=xxxxx%0A')" referrerpolicy="no-referrer"
                 src="../images/Email" />
@@ -421,9 +424,6 @@ window.onload = function () {
              </template>
             </div>
             <div class="content_line"></div>
-            <h2 class="text_21">
-              Latest Reviews
-            </h2>
             <img width="100%" class="details_img"
               :src="details_info.first_picture"
               alt="">
@@ -500,7 +500,7 @@ window.onload = function () {
               <div class="top">
                 <img src="./images/Email" alt="" height="42">
                 <div class="right_flex">
-                  <p class="text_21">SIGN UP FOR EMAIL NEWSLETTERS</p>
+                  <p class="text_21">SIGN UP FOR EMAIL {{menu.find(item => item.id == details_info.two_type).name.toLocaleUpperCase()}}</p>
                 </div>
 
               </div>
@@ -541,9 +541,11 @@ window.onload = function () {
     data: {
       details_info: {},
       adv: [],
-      type: ''
+      type: '',
+      menu: [{ "id": 18, "name": "Best Picks", "type": "1" }, { "id": 19, "name": "Review", "type": "1" }, { "id": 20, "name": "Home & Garden", "type": "2" }, { "id": 21, "name": "Money", "type": "2" }, { "id": 22, "name": "Tech", "type": "2" }, { "id": 23, "name": "Health", "type": "2" }]
     },
     async mounted() {
+      this.menu = await getJson('../api/channel/menu.json');
       // 获取查询参数
       let search = window.location.search.slice(1)
       let a = {}
@@ -579,7 +581,7 @@ window.onload = function () {
   </div>
   <div class="detailstop">
    </div>
-  <h2 class="text_20">
+  <h2 class="text_20" style="-webkit-line-clamp: 10;}">
     {{details_info.title}}
   </h2>
 
@@ -591,16 +593,16 @@ window.onload = function () {
     </span><span class="text_23"> By {{details_info.author_name}} published
       {{Math.floor((+new Date() - +new Date(details_info.release_time)) / 1000 / (60 * 60 * 24)) }} days ago</span>
   </p>
-  <p class="text_25">
+  <p class="text_25" style="-webkit-line-clamp: 10;}">
     {{details_info.description}}
   </p>
   <div class="share">
     <img class="label_1" referrerpolicy="no-referrer" src="../images/faceBook" @click="shareLink('https://www.facebook.com/sharer/sharer.php?u=xxxxx')"/>
-    <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the Evaluation station website.')" referrerpolicy="no-referrer"
+    <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
       src="../images/Twitter" />
-    <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the Evaluation station website.')" referrerpolicy="no-referrer"
+    <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
       src="../images/Q" />
-    <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the Evaluation station website.&url=xxxxx')" referrerpolicy="no-referrer"
+    <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the SnnSnn Reviews website.&url=xxxxx')" referrerpolicy="no-referrer"
       src="../images/San" />
     <img class="label_5" @click="shareLink('mailto:info@example.com?&subject=&cc=&bcc=&body=xxxxx%0A')" referrerpolicy="no-referrer"
       src="../images/Email" />
@@ -619,7 +621,7 @@ window.onload = function () {
             <div class="amazon_adv_item" v-for="amazon_adv in item.amazon_adv">
               <img :src="amazon_adv.picture">
               <p class="amazon_adv_title">{{amazon_adv.title}}</p>
-              <p class="amazon_adv_price">{{amazon_adv.actual_price}}</p>
+              <p class="amazon_adv_price">{{amazon_adv.actual_price == 'null' ? '' : amazon_adv.actual_price}}</p>
               <a :href="amazon_adv.link" target="_blank">VIEW</a>
             </div>
           </div>
@@ -646,7 +648,7 @@ window.onload = function () {
         <div class="content_line"></div>
         <div class="recommended_by_the_author">
           <div class="recommended_by_left">
-            <div class="author_nav">MORE ABOUT ELECTRONICS</div>
+            <div class="author_nav">MORE ABOUT {{menu.find(item => item.id == details_info.two_type).name.toLocaleUpperCase()}}</div>
             <div class="author_article_list">
               <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id + '&type=' + type : './detailsReviews.html?id=' + item.id + '&type=' + type"
                 class="author_article_list_item" v-for="item in details_info.category_recommend_list">
@@ -775,7 +777,7 @@ window.onload = function () {
                     {{item.title}}
                   </h2>
                   <p class="text_23">
-                     Updated {{item.time_en}}
+                     By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
                   </p>
                 </div>
               </a>
@@ -785,7 +787,7 @@ window.onload = function () {
           <div class="article_block">
             <div class="article_title">
               <span class="text_22">
-                Latest Reviews
+                All Reviews
               </span>
               <span class="bottom_border"></span>
             </div>
@@ -888,7 +890,7 @@ window.onload = function () {
                    {{item.title}}
                   </h2>
                   <p class="text_23">
-                     Updated {{item.time_en}}
+                     By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
                   </p>
                 </div>
               </a>
@@ -898,7 +900,7 @@ window.onload = function () {
           <div class="article_block">
             <div class="article_title">
               <span class="text_22">
-                Latest Best Picks
+                All Best Picks
               </span>
               <span class="bottom_border"></span>
             </div>
@@ -1009,7 +1011,7 @@ window.onload = function () {
               {{item.title}}
             </h2>
             <p class="text_23">
-               Updated {{item.time_en}}
+               By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
             </p>
           </div>
         </a>
@@ -1223,7 +1225,7 @@ window.onload = function () {
             <p class="text_22">
               {{item.main_title}}
             </p>
-            <p class="text_23">By {{item.author_name}}
+            <p class="text_23">By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
             </p>
           </div>
           <img class="image_2" referrerpolicy="no-referrer" :src="item.first_picture" />
@@ -1240,7 +1242,7 @@ window.onload = function () {
           {{item.title}}
         </h2>
         <p class="text_23">
-          Updated {{item.time_en}}
+          By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
         </p>
       </div>
     </a>
