@@ -375,18 +375,15 @@ window.onload = function () {
         <div class="details_body animate__animated animate__fadeIn">
           <div class="left">
             <div class="crumbs">
-              <a :href="'/' + '?&type=' + type">Home</a> > <a :href="'./bestpicksPage.html?id=1-18-1' + '&type=' + type">Best.picks</a>
+              <a :href="'/' + '?&type=' + type">Home</a> > <a :href="'./bestpicksPage.html?id=1-18-1' + '&type=' + type">Best Picks</a>
             </div>
             <div class="detailstop">
             </div>
-            <h2 class="text_20" style="-webkit-line-clamp: 10;}">
+            <h2 class="text_20" style="-webkit-line-clamp: 100;}">
             {{details_info.title}}
             </h2>
             <p class="text_23">
              <span class="text_23">By {{details_info.author_name}} published {{Math.floor((+new Date() - +new Date(details_info.release_time)) / 1000 / (60 * 60 * 24)) }} days ago</span>
-            </p>
-            <p class="text_25" style="-webkit-line-clamp: 10;}">
-            {{details_info.description}}
             </p>
             <div class="share">
               <img class="label_1" referrerpolicy="no-referrer" src="../images/faceBook" @click="shareLink('https://www.facebook.com/sharer/sharer.php?u=xxxxx')"/>
@@ -527,7 +524,7 @@ window.onload = function () {
               <div>
                 <button>SIGE ME UP</button>
               </div>
-              <p>By submitting your information you agree to theTerms Conditions and Privacy Policy and areaged 16 or
+              <p>By submitting your information you agree to theTerms Conditions and Privacy Policy and are aged 16 or
                 over</p>
             </div>
           </div>
@@ -581,7 +578,7 @@ window.onload = function () {
   </div>
   <div class="detailstop">
    </div>
-  <h2 class="text_20" style="-webkit-line-clamp: 10;}">
+  <h2 class="text_20" style="-webkit-line-clamp: 100;}">
     {{details_info.title}}
   </h2>
 
@@ -592,9 +589,6 @@ window.onload = function () {
     <img v-for="el in 5" src="../images/start-.png" width="16">
     </span><span class="text_23"> By {{details_info.author_name}} published
       {{Math.floor((+new Date() - +new Date(details_info.release_time)) / 1000 / (60 * 60 * 24)) }} days ago</span>
-  </p>
-  <p class="text_25" style="-webkit-line-clamp: 10;}">
-    {{details_info.description}}
   </p>
   <div class="share">
     <img class="label_1" referrerpolicy="no-referrer" src="../images/faceBook" @click="shareLink('https://www.facebook.com/sharer/sharer.php?u=xxxxx')"/>
@@ -652,7 +646,7 @@ window.onload = function () {
             <div class="author_article_list">
               <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id + '&type=' + type : './detailsReviews.html?id=' + item.id + '&type=' + type"
                 class="author_article_list_item" v-for="item in details_info.category_recommend_list">
-                <img :src="item.first_picture" alt="">
+                <img :src="item.first_picture" alt="" style="display: block;">
                 <a class="text_21" >{{item.title}}►</a>
               </a>
             </div>
@@ -705,7 +699,7 @@ window.onload = function () {
         <div>
           <button>SIGE ME UP</button>
         </div>
-        <p>By submitting your information you agree to theTerms Conditions and Privacy Policy and areaged 16 or
+        <p>By submitting your information you agree to theTerms Conditions and Privacy Policy and are aged 16 or
           over</p>
       </div>
     </div>
