@@ -40,17 +40,26 @@ window.onload = function () {
       })
       this.searchResult = await getJson('../api/search/search.json');
       this.type = a.type || '1'
-      this.adv = await getJson('../api/index_' + this.type + '.json');
+      let pc = ''
+      if (window.screen.width > 768) {
+        pc = 'pc_'
+      }
+      this.adv = await getJson('../api/googleAdv/index_' + pc + this.type + '.json');
       this.$nextTick(() => {
+
         if (window.location.pathname.includes('channelPage'))
           return
         this.adv.forEach(item => {
           item.position_id == 1 ? $('head').append(item.script) : ''
+
           item.position_id == 2 ? $('.typePage').html(`<div class="Advertisement">Advertisement${item.script}</div>` + $('.typePage').html()) : ''
           item.position_id == 3 ? $('.typePage').html($('.typePage').html() + `<div class="Advertisement">Advertisement${item.script}</div>`) : ''
+
+
           item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0">${item.script}</div>`) : ''
         })
       })
+
       this.type = 4
     },
     watch: {
@@ -334,13 +343,18 @@ window.onload = function () {
       $('head').append(`<meta name="keywords" content="${this.details_info.keyword}">`)
       $('head').append(`<meta name="description" content="${this.details_info.description}">`)
       $('title').html(`${this.details_info.title}`)
-      this.adv = await getJson('../api/details_' + this.type + '.json') || [];
+      let pc = ''
+      if (window.screen.width > 768) {
+        pc = 'pc_'
+      }
+      this.adv = await getJson('../api/googleAdv/details_' + pc + this.type + '.json');
       this.$nextTick(() => {
         this.adv.forEach(item => {
           item.position_id == 1 ? $('head').append(item.script?.replace(/_pageID_/g, id)) : ''
           item.position_id == 2 ? $('.detailstop').html(`<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>` + $('.detailstop').html()) : ''
           item.position_id == 3 ? $('.detailsbottom').html($('.detailsbottom').html() + `<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
           item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0;">${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
+          item.position_id == 11 ? $('.detailsBestpicks_adv_box').html(`<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
         })
 
       })
@@ -527,6 +541,7 @@ window.onload = function () {
               <p>By submitting your information you agree to theTerms Conditions and Privacy Policy and are aged 16 or
                 over</p>
             </div>
+            <div class="detailsBestpicks_adv_box"></div>
           </div>
         </div>
       </div>`
@@ -551,18 +566,22 @@ window.onload = function () {
       })
       this.type = a.type || '4'
       let id = a.id
-      this.details_info = await getJson('../api/details/details-' + id + '.json');
+      let pc = ''
+      if (window.screen.width > 768) {
+        pc = 'pc_'
+      }
       this.details_info = await getJson('../api/details/details-' + id + '.json');
       $('head').append(`<meta name="keywords" content="${this.details_info.keyword}">`)
       $('head').append(`<meta name="description" content="${this.details_info.description}">`)
       $('title').html(`${this.details_info.title}`)
-      this.adv = await getJson('../api/details_' + this.type + '.json');
+      this.adv = await getJson('../api/googleAdv/details_' + pc + this.type + '.json');
       this.$nextTick(() => {
         this.adv.forEach(item => {
           item.position_id == 1 ? $('head').append(item.script?.replace(/_pageID_/g, id)) : ''
           item.position_id == 2 ? $('.detailstop').html(`<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>` + $('.detailstop').html()) : ''
           item.position_id == 3 ? $('.detailsbottom').html($('.detailsbottom').html() + `<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
           item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0;">${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
+          item.position_id == 11 ? $('.detailsBestpicks_adv_box').html(`<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
         })
       })
     },
@@ -577,29 +596,33 @@ window.onload = function () {
     <a :href="'/' + '?&type=' + type">Home</a> > <a :href="'./reviewsPage.html?id=1-19-1' + '&type=' + type">Reviews</a>
   </div>
   <div class="detailstop">
-   </div>
+  </div>
   <h2 class="text_20" style="-webkit-line-clamp: 100;}">
     {{details_info.title}}
   </h2>
 
   <p class="text_23">
     <span class="start" style="display: inline_block">
-    <img v-for="el in Math.floor(Number(details_info.score))" src="../images/start.png" width="16">
-    <img src="../images/startx.png" width="16" v-if="details_info.score.includes('.')">
-    <img v-for="el in 5" src="../images/start-.png" width="16">
+      <img v-for="el in Math.floor(Number(details_info.score))" src="../images/start.png" width="16">
+      <img src="../images/startx.png" width="16" v-if="details_info.score.includes('.')">
+      <img v-for="el in 5" src="../images/start-.png" width="16">
     </span><span class="text_23"> By {{details_info.author_name}} published
       {{Math.floor((+new Date() - +new Date(details_info.release_time)) / 1000 / (60 * 60 * 24)) }} days ago</span>
   </p>
   <div class="share">
-    <img class="label_1" referrerpolicy="no-referrer" src="../images/faceBook" @click="shareLink('https://www.facebook.com/sharer/sharer.php?u=xxxxx')"/>
-    <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
-      src="../images/Twitter" />
-    <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
-      src="../images/Q" />
-    <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the SnnSnn Reviews website.&url=xxxxx')" referrerpolicy="no-referrer"
-      src="../images/San" />
-    <img class="label_5" @click="shareLink('mailto:info@example.com?&subject=&cc=&bcc=&body=xxxxx%0A')" referrerpolicy="no-referrer"
-      src="../images/Email" />
+    <img class="label_1" referrerpolicy="no-referrer" src="../images/faceBook"
+      @click="shareLink('https://www.facebook.com/sharer/sharer.php?u=xxxxx')" />
+    <img class="label_2"
+      @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the SnnSnn Reviews website.')"
+      referrerpolicy="no-referrer" src="../images/Twitter" />
+    <img class="label_3"
+      @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the SnnSnn Reviews website.')"
+      referrerpolicy="no-referrer" src="../images/Q" />
+    <img class="label_4"
+      @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the SnnSnn Reviews website.&url=xxxxx')"
+      referrerpolicy="no-referrer" src="../images/San" />
+    <img class="label_5" @click="shareLink('mailto:info@example.com?&subject=&cc=&bcc=&body=xxxxx%0A')"
+      referrerpolicy="no-referrer" src="../images/Email" />
   </div>
   <img width="100%" class="details_img" :src="details_info.first_picture" alt="">
   <div class="details_body">
@@ -622,14 +645,15 @@ window.onload = function () {
         </div>
       </template>
       <div class="detailsbottom">
-   </div>
+      </div>
       <div class="author_info">
         <div class="author_top">
           <div class="author_img">
             <img :src="details_info.author_head_portrait" alt="">
           </div>
           <div class="author_title">
-            <a :href="'author.html?id=' + details_info.author_id + '-1' + '&type=' + type" class="text_26" style="margin:0">
+            <a :href="'author.html?id=' + details_info.author_id + '-1' + '&type=' + type" class="text_26"
+              style="margin:0">
               {{details_info.author_name ||'--'}}
             </a>
           </div>
@@ -642,12 +666,13 @@ window.onload = function () {
         <div class="content_line"></div>
         <div class="recommended_by_the_author">
           <div class="recommended_by_left">
-            <div class="author_nav">MORE ABOUT {{menu.find(item => item.id == details_info.two_type).name.toLocaleUpperCase()}}</div>
+            <div class="author_nav">MORE ABOUT {{menu.find(item => item.id ==
+              details_info.two_type).name.toLocaleUpperCase()}}</div>
             <div class="author_article_list">
               <a :href="item.type == 1 ? './detailsBestpicks.html?id=' + item.id + '&type=' + type : './detailsReviews.html?id=' + item.id + '&type=' + type"
                 class="author_article_list_item" v-for="item in details_info.category_recommend_list">
                 <img :src="item.first_picture" alt="" style="display: block;">
-                <a class="text_21" >{{item.title}}►</a>
+                <a class="text_21">{{item.title}}►</a>
               </a>
             </div>
           </div>
@@ -702,9 +727,12 @@ window.onload = function () {
         <p>By submitting your information you agree to theTerms Conditions and Privacy Policy and are aged 16 or
           over</p>
       </div>
+      <div class="detailsBestpicks_adv_box"></div>
     </div>
+
   </div>
 </div>
+
 `
   })
 
@@ -949,6 +977,7 @@ window.onload = function () {
         })
         let id = a.id
         // 获取查询参数
+
         let { res, total } = await getJson('../api/channel/channel-' + id + '.json');
         this.menu = await getJson('../api/channel/menu.json');
         this.channelResult = res;
@@ -969,7 +998,11 @@ window.onload = function () {
       this.type = a.type || '4'
       // 获取查询参数
       await this.getData()
-      this.adv = await getJson('../api/index_' + this.type + '.json');
+      let pc = ''
+      if (window.screen.width > 768) {
+        pc = 'pc_'
+      }
+      this.adv = await getJson('../api/googleAdv/index_' + pc + this.type + '.json');
       this.$nextTick(() => {
         this.adv.forEach(item => {
           item.position_id == 1 ? $('head').append(item.script) : ''

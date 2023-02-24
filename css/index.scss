@@ -192,6 +192,7 @@ h2 {
   background: rgb(228, 228, 228);
   text-align: center;
   margin-top: 20px;
+  padding: 10px;
 }
 
 @media screen and (max-width: 900px) {
@@ -205,10 +206,10 @@ h2 {
 }
 
 .app {
-  width: 100vw;
+  // width: 100vw;
 
   .header {
-    max-width: 1200px;
+    max-width: 1350px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -335,7 +336,7 @@ h2 {
     @include display_none_phone;
 
     .menu_content {
-      max-width: 1200px;
+      max-width: 1350px;
       margin: 0 auto;
 
       .block_1 {
@@ -411,7 +412,7 @@ h2 {
   }
 
   .content {
-    max-width: 1200px;
+    max-width: 1350px;
     margin: 0 auto;
     min-height: 100vh;
 
@@ -782,7 +783,7 @@ h2 {
       padding-bottom: 20px;
 
       .left {
-        width: 75%;
+        // width: 75%;
         padding-right: 20px;
         @include width_100p_phone;
 
@@ -1501,7 +1502,7 @@ h2 {
     padding-bottom: 50px;
 
     .footer_content {
-      max-width: 1200px;
+      max-width: 1350px;
       margin: 0 auto;
       padding: 50px 0;
       color: white;
