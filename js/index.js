@@ -60,7 +60,7 @@ window.onload = function () {
         })
       })
 
-      this.type = 4
+      this.type = '1'
     },
     watch: {
       searchKeys(value, old) {
@@ -115,12 +115,12 @@ window.onload = function () {
        &#xe790;
       </div>
       <a :href="'/' + '?&type=' + type" class="text-wrapper_1 animate__animated" :class="{animate__backInRight: isTrue()}" :style="{display: showSearch ? 'none' : 'block'}" v-if="!showSearch">
-        <span class="text_1">SnnSnn </span>
+        <span class="text_1">updownviews </span>
         <span class="text_2">Reviews</span>
       </a>
       <!-- 双标签解决双端正常显示网站名称-->
       <a :href="'/' + '?&type=' + type" class="text-wrapper_1 text-wrapper_2" v-else>
-        <span class="text_1">SnnSnn </span>
+        <span class="text_1">updownviews </span>
         <span class="text_2">Reviews</span>
       </a>
       <div class="search_box" v-if="showSearch">
@@ -129,11 +129,11 @@ window.onload = function () {
       <div class="share">
         <img class="label_1" referrerpolicy="no-referrer"
           src="../images/faceBook" @click="shareLink('https://www.facebook.com/sharer/sharer.php?u=xxxxx')"/>
-        <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
+        <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the updownviews Reviews website.')" referrerpolicy="no-referrer"
           src="../images/Twitter" />
-        <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
+        <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the updownviews Reviews website.')" referrerpolicy="no-referrer"
           src="../images/Q" />
-        <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the SnnSnn Reviews website.&url=xxxxx')" referrerpolicy="no-referrer"
+        <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the updownviews Reviews website.&url=xxxxx')" referrerpolicy="no-referrer"
           src="../images/San" />
         <img class="label_5" @click="shareLink('mailto:info@example.com?&subject=&cc=&bcc=&body=xxxxx%0A')" referrerpolicy="no-referrer"
           src="../images/Email" />
@@ -170,7 +170,6 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '1'
       this.menu = await getJson('../api/channel/menu.json');
       // this.adv = await getJson('../api/index_' + this.type + '.json');
       // this.$nextTick(() => {
@@ -181,7 +180,7 @@ window.onload = function () {
       //     item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0">${item.script}</div>`) : ''
       //   })
       // })
-      this.type = 4
+      this.type = '1'
     },
 
     template: `
@@ -213,7 +212,7 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '4'
+      this.type = '1'
       this.menu = await getJson('../api/channel/menu.json');
     },
     methods: {
@@ -256,7 +255,7 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '4'
+      this.type = '1'
       this.topRecommendation = await getJson('../api/channel/topping.json');
     },
     template: `<div class="top_recommendation">
@@ -276,7 +275,7 @@ window.onload = function () {
     },
     template: `<div class="footer">
                 <div class="footer_content">
-                  <p class="top_text">SnnSnn Reviews helps you find your tech sweet spot. We steer you to products you'll love and show you how to get the most out of them.</p>
+                  <p class="top_text">updownviews Reviews helps you find your tech sweet spot. We steer you to products you'll love and show you how to get the most out of them.</p>
                   <div class="footer_content_hr"></div>
                    <p class="more_text">
                       <a href="./Terms and conditions.html">
@@ -337,7 +336,7 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '4'
+      this.type = a.type || '1'
       let id = a.id
       this.details_info = await getJson('../api/details/details-' + id + '.json');
       $('head').append(`<meta name="keywords" content="${this.details_info.keyword}">`)
@@ -358,6 +357,7 @@ window.onload = function () {
         })
 
       })
+      this.type = '1'
       window.onscroll = (e) => {
         // 导航跟随
         try {
@@ -401,11 +401,11 @@ window.onload = function () {
             </p>
             <div class="share">
               <img class="label_1" referrerpolicy="no-referrer" src="../images/faceBook" @click="shareLink('https://www.facebook.com/sharer/sharer.php?u=xxxxx')"/>
-              <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
+              <img class="label_2" @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the updownviews Reviews website.')" referrerpolicy="no-referrer"
                 src="../images/Twitter" />
-              <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the SnnSnn Reviews website.')" referrerpolicy="no-referrer"
+              <img class="label_3" @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the updownviews Reviews website.')" referrerpolicy="no-referrer"
                 src="../images/Q" />
-              <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the SnnSnn Reviews website.&url=xxxxx')" referrerpolicy="no-referrer"
+              <img class="label_4" @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the updownviews Reviews website.&url=xxxxx')" referrerpolicy="no-referrer"
                 src="../images/San" />
               <img class="label_5" @click="shareLink('mailto:info@example.com?&subject=&cc=&bcc=&body=xxxxx%0A')" referrerpolicy="no-referrer"
                 src="../images/Email" />
@@ -564,7 +564,7 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '4'
+      this.type = a.type || '1'
       let id = a.id
       let pc = ''
       if (window.screen.width > 768) {
@@ -584,6 +584,7 @@ window.onload = function () {
           item.position_id == 11 ? $('.detailsBestpicks_adv_box').html(`<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
         })
       })
+      this.type = '1'
     },
     methods: {
       shareLink(path) {
@@ -613,13 +614,13 @@ window.onload = function () {
     <img class="label_1" referrerpolicy="no-referrer" src="../images/faceBook"
       @click="shareLink('https://www.facebook.com/sharer/sharer.php?u=xxxxx')" />
     <img class="label_2"
-      @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the SnnSnn Reviews website.')"
+      @click="shareLink('https://twitter.com/intent/tweet?url=xxxxx&text=I found a great article on the updownviews Reviews website.')"
       referrerpolicy="no-referrer" src="../images/Twitter" />
     <img class="label_3"
-      @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the SnnSnn Reviews website.')"
+      @click="shareLink('https://pinterest.com/pin/create/button/?url=xxxxx&media=&description=I found a great article on the updownviews Reviews website.')"
       referrerpolicy="no-referrer" src="../images/Q" />
     <img class="label_4"
-      @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the SnnSnn Reviews website.&url=xxxxx')"
+      @click="shareLink('https://share.flipboard.com/bookmarklet/popout?v=2&title=I found a great article on the updownviews Reviews website.&url=xxxxx')"
       referrerpolicy="no-referrer" src="../images/San" />
     <img class="label_5" @click="shareLink('mailto:info@example.com?&subject=&cc=&bcc=&body=xxxxx%0A')"
       referrerpolicy="no-referrer" src="../images/Email" />
@@ -752,7 +753,7 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '4'
+      this.type = '1'
       // 获取查询参数
       this.getData()
     },
@@ -885,7 +886,7 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '4'
+      this.type = '1'
       this.getData();
     },
     template: `<div class="typePage bestpicksPage animate__animated animate__fadeIn">
@@ -995,7 +996,7 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '4'
+      this.type = '1'
       // 获取查询参数
       await this.getData()
       let pc = ''
@@ -1011,6 +1012,7 @@ window.onload = function () {
           item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0">${item.script}</div>`) : ''
         })
       })
+      this.type = '1'
 
     },
     template: `<div class="typePage channelPage animate__animated animate__fadeIn">
@@ -1107,7 +1109,7 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '4'
+      this.type = '1'
       // 获取查询参数
       this.getData()
     },
@@ -1213,7 +1215,7 @@ window.onload = function () {
       search.split("&").map(el => {
         a[el.split('=')[0]] = el.split('=')[1]
       })
-      this.type = a.type || '4'
+      this.type = '1'
       // 获取查询参数
       this.getData()
 
