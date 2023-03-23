@@ -383,6 +383,11 @@ window.onload = function () {
         let goPath = path.replace('xxxxx', window.location.href)
         window.open(goPath)
       },
+      page_jump(path) {
+        if (path && path.includes('https://amzn.to/'))
+          gtag('event', 'amazonClick');
+        window.open(path, '_blank');
+      },
     },
     template: `<div class="details detailsBestpicks">
 
@@ -430,7 +435,7 @@ window.onload = function () {
                   alt="">
                 <h2 class="text_22">{{item.title}}</h2>
                 <p>{{item.specifications}}</p>
-                <a :href="item.link" target="_blank"><button>CHECK PRICE</button></a>
+                <a href="javascript:void(0);" target="_blank" @click="page_jump(item.link)"><button>CHECK PRICE</button></a>
               </a>
              </template>
             </div>
@@ -591,6 +596,11 @@ window.onload = function () {
         let goPath = path.replace('xxxxx', window.location.href)
         window.open(goPath)
       },
+      page_jump(path) {
+        if (path && path.includes('https://amzn.to/'))
+          gtag('event', 'amazonClick');
+        window.open(path, '_blank');
+      },
     },
     template: `<div class="details detailsReviews animate__animated animate__fadeIn">
   <div class="crumbs">
@@ -640,7 +650,7 @@ window.onload = function () {
               <img :src="amazon_adv.picture">
               <p class="amazon_adv_title">{{amazon_adv.title}}</p>
               <p class="amazon_adv_price">{{amazon_adv.actual_price == 'null' ? '' : amazon_adv.actual_price}}</p>
-              <a :href="amazon_adv.link" target="_blank">VIEW</a>
+              <a href="javascript:void(0);" @click="page_jump(amazon_adv.link)" target="_blank">VIEW</a>
             </div>
           </div>
         </div>
