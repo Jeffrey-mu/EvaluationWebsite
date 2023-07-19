@@ -346,18 +346,6 @@ window.onload = function () {
       if (window.screen.width > 768) {
         pc = 'pc_'
       }
-      this.adv = await getJson('../api/googleAdv/details_' + pc + this.type + '.json');
-      this.$nextTick(() => {
-        this.adv.forEach(item => {
-          item.position_id == 1 ? $('head').append(item.script?.replace(/_pageID_/g, id)) : ''
-          item.position_id == 2 ? $('.detailstop').html(`<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>` + $('.detailstop').html()) : ''
-          item.position_id == 3 ? $('.detailsbottom').html($('.detailsbottom').html() + `<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
-          item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0;">${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
-          item.position_id == 11 ? $('.detailsBestpicks_adv_box').html(`<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
-        })
-
-      })
-      this.type = '1'
       window.onscroll = (e) => {
         // 导航跟随
         try {
@@ -377,6 +365,19 @@ window.onload = function () {
 
         }
       }
+      this.adv = await getJson('../api/googleAdv/details_' + pc + this.type + '.json');
+      this.$nextTick(() => {
+        this.adv.forEach(item => {
+          item.position_id == 1 ? $('head').append(item.script?.replace(/_pageID_/g, id)) : ''
+          item.position_id == 2 ? $('.detailstop').html(`<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>` + $('.detailstop').html()) : ''
+          item.position_id == 3 ? $('.detailsbottom').html($('.detailsbottom').html() + `<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
+          item.position_id == 4 ? $('.footer').html($('.footer').html() + `<div style="position:fixed;bottom:0;">${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
+          item.position_id == 11 ? $('.detailsBestpicks_adv_box').html(`<div class="Advertisement">Advertisement${item.script?.replace(/_pageID_/g, id)}</div>`) : ''
+        })
+
+      })
+      this.type = '1'
+
     },
     methods: {
       shareLink(path) {
@@ -385,7 +386,18 @@ window.onload = function () {
       },
       page_jump(path) {
         if (path && path.includes('https://amzn.to/'))
-          gtag('event', 'amazonClick');
+          // gtag('event', 'amazonClick');
+          document.write(`<script async src="https://www.googletagmanager.com/gtag/js?id=DC-12704979"><\/script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'DC-12704979');
+  gtag('event', 'conversion', {
+    'allow_custom_scripts': true,
+    'send_to': 'DC-12704979/invmedia/sjque0+standard'
+  });
+<\/script>`)
         window.open(path, '_blank');
       },
     },
@@ -598,7 +610,18 @@ window.onload = function () {
       },
       page_jump(path) {
         if (path && path.includes('https://amzn.to/'))
-          gtag('event', 'amazonClick');
+          // gtag('event', 'amazonClick');
+          document.write(`<script async src="https://www.googletagmanager.com/gtag/js?id=DC-12704979"><\/script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'DC-12704979');
+  gtag('event', 'conversion', {
+    'allow_custom_scripts': true,
+    'send_to': 'DC-12704979/invmedia/sjque0+standard'
+  });
+<\/script>`)
         window.open(path, '_blank');
       },
     },
@@ -786,7 +809,7 @@ window.onload = function () {
         window.location.href = "./reviewsPage.html?id=" + this.id + this.page + '&type=' + this.type
       }
     },
-    template: ` <div class="typePage reviewsPage">
+    template: ` <div class="typePage reviewsPage"   v-if="channelResult.length">
         <div class="left">
           <div class="typePage_top_content animate__animated animate__fadeIn">
             <a :href="'./detailsReviews.html?id=' + channelResult[0].id + '&type=' + type" class="left">
@@ -836,7 +859,7 @@ window.onload = function () {
                      By {{item.author_name}} published {{Math.floor((+new Date() - +new Date(item.release_time)) / 1000 / (60 * 60 * 24)) }} days ago
                   </div>
                   <div class="start">
-                   <img style="display:block" v-for="el in Math.floor(Number((''+item.score)))" src="../images/start.png" width="16">
+                   <img v-if="Math.floor(Number((''+item.score)))" style="display:block" v-for="el in Math.floor(Number((''+item.score)))" src="../images/start.png" width="16">
                   <img style="display:block" src="../images/startx.png" width="16" v-if="(''+item.score).includes('.')">
                    <img style="display:block" v-for="el in 5" src="../images/start-.png" width="16">
                   </div>
@@ -848,9 +871,11 @@ window.onload = function () {
             </div>
             <div class="article_limit_page">
               <span v-for="item in total">
-                <a :class="{active: item == page-1}" :href="'./reviewsPage.html?id=' + id + item + '&type=' + type">{{item}}</a>
+                <a :class="{active: item == page - 1}" :href="'./reviewsPage.html?id=' + id + item + '&type=' + type">{{item}}</a>
               </span>
-              <span @click="handleNextPage">Next Page</span>
+              <span>
+              <a :href="'./reviewsPage.html?id=' + id + page + '&type=' + type">Next Page</a>
+              </span>
             </div>
           </div>
         </div>
@@ -899,7 +924,7 @@ window.onload = function () {
       this.type = '1'
       this.getData();
     },
-    template: `<div class="typePage bestpicksPage animate__animated animate__fadeIn">
+    template: `<div class="typePage bestpicksPage animate__animated animate__fadeIn" v-if="channelResult.length">
         <div class="left">
           <div class="typePage_top_content">
             <a :href="'./detailsBestpicks.html?id=' + channelResult[0].id + '&type=' + type" class="left">
@@ -959,7 +984,9 @@ window.onload = function () {
               <span v-for="item in total">
                 <a :class="{active: item == page-1}" :href="'./bestpicksPage.html?id=' + id + item + '&type=' + type">{{item}}</a>
               </span>
-              <span @click="handleNextPage">Next Page</span>
+
+              <span>
+              <a :href="'./bestpicksPage.html?id=' + id + page + '&type=' + type">Next Page</a></span>
             </div>
           </div>
         </div>
@@ -1025,7 +1052,7 @@ window.onload = function () {
       this.type = '1'
 
     },
-    template: `<div class="typePage channelPage animate__animated animate__fadeIn">
+    template: `<div class="typePage channelPage animate__animated animate__fadeIn"  v-if="channelResult.length">
   <div class="left">
     <h2 style="margin-top: 20px; font-size: 28px;">{{menu.find(el => el.id == id.split('-')[1]).name}}</h2>
     <div class="typePage_top_content">
@@ -1090,7 +1117,9 @@ window.onload = function () {
       <span v-for="item in total">
         <a :class="{active: item == page-1}" :href="'./channelPage.html?id=' + id + item + '&type=' + type">{{item}}</a>
       </span>
-      <span @click="handleNextPage">Next Page</span>
+      <span>
+      <a :href="'./channelPage.html?id=' + id + page + '&type=' + type">Next Page</a></span>
+      </span>
     </div>
     </div>
   </div>
